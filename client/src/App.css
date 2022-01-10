@@ -1,0 +1,89 @@
+
+
+/*** FONTS ***/
+@import url(https://fonts.googleapis.com/css?family=Montserrat:900|Raleway:400,400i,700,700i);
+
+@import url('https://fonts.googleapis.com/css2?family=Sonsie+One&display=swap');
+
+html,
+body {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #83e4e2;
+  color: #1d1f20;;
+  font-family: 'Raleway', sans-serif;
+}
+
+main {
+  display: block;
+  margin: 0 auto;
+  max-width: 40rem;
+  padding: 1rem;
+}
+
+ul.no-bullets {
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
+}
+
+.gif {
+  align: center;
+  display: block;
+  width:74%;
+  height:74%;
+  margin: 0 auto;
+  padding-left: 13%;
+  padding-bottom: 10%;
+  position: absolute;
+}
+
+.frame {
+  margin: 0 auto;
+  padding-left: 0%;
+  display: block;
+  margin: auto;
+  width: 50%;
+  height: 60%;
+  position: relative;
+}
+
+
+ol.gradient-list {
+  counter-reset: gradient-counter;
+  list-style: none;
+  margin: 1.75rem 0;
+  padding-left: 1rem;
+  > li {
+    background: #83e4e2;
+    border-radius: 0 0.5rem 0.5rem 0.5rem;
+    @extend %boxshadow;
+    counter-increment: gradient-counter;
+    margin-top: 1rem;
+    min-height: 3rem;
+    padding: 1rem 1rem 1rem 3rem;
+    position: relative;
+  }
+
+}
+.trip {
+  font-family: 'Sonsie One', cursive;
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.zig-zag { border: none; width: 33%; margin: auto; margin-top: 1%; margin-bottom: 1%; height: 3px; background: linear-gradient(135deg, #ECEDDC 25%, transparent 25%) -2px 0, linear-gradient(225deg, #ECEDDC 25%, transparent 25%) -2px 0, linear-gradient(315deg, #ECEDDC 25%, transparent 25%), linear-gradient(45deg, #ECEDDC 25%, transparent 25%); background-size: 4px 4px; background-color: #EC173A;}

@@ -52,7 +52,7 @@ class RoutesController < ApplicationController
 
     # route_params = {dt: dt, lat1: lat1, long1: long1, lat2: lat2, long2: long2}
 
-    route_params = {dt: dt, place1: place1, place2: place2}
+    route_params = {place1: place1, place2: place2}
 
     @route = Route.new(route_params)
 

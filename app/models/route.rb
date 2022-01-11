@@ -1,7 +1,7 @@
 class Route < ApplicationRecord
   include HTTParty
   # validates :dt, :lat1, :long1, :lat2, :long2, presence: true
-  validates :dt, :place1, :place2, presence: true
+  validates :place1, :place2, presence: true
 
     def directions
 

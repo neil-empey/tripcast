@@ -7,9 +7,6 @@
     "url": "https://github.com/neil-empey/tripcast",
     "type": "git"
   },
-  "directories": {
-    "lib": "lib"
-  },
   "engines": {
     "yarn": "1.22.17",
     "npm": "8.1.0",
@@ -19,7 +16,7 @@
     "build": "cd client && yarn install && yarn build && cd ..",
     "deploy": "cp -a client/build/. public/",
     "postinstall": "yarn build && yarn deploy && echo 'Client built!'"
-  },,
+  },
   "author": "Neil E",
   "license": "MIT"
 }

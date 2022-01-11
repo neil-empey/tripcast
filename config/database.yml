@@ -76,6 +76,6 @@ test:
 #
 production:
   <<: *default
-  database: trpicast_production
+  database: tripcast_production
   username: tripcast
   password: <%= ENV['TRIPCAST_DATABASE_PASSWORD'] %>

@@ -56,7 +56,10 @@ class WeatherRouteText extends Component {
             your trip.
           </h3>
           {this.getWeather().map((x, i) => (
-            <li key={i}>{x}</li>
+            <span>
+              <h4>Stage {i + 1}</h4>
+              <li key={i}>{x}</li>
+            </span>
           ))}
 
           <br></br>

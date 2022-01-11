@@ -14,6 +14,10 @@ class RoutesController < ApplicationController
     render json: @route
   end
 
+  def welcome
+    render :text => "welcome"
+  end
+
 
   def update
     if @route.update(route_params)

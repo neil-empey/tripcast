@@ -44,7 +44,7 @@ class Inputs extends React.Component {
     const baseURL = "http://127.0.0.1:3001/destinations";
 
     axios
-      .post("/destinations", {
+      .post(baseURL, {
         destinations
       })
       .then(response => {

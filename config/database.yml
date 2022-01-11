@@ -22,6 +22,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
+  <<: *default
   adapter: postgresql
   host: localhost
   username: user
@@ -76,14 +77,13 @@ test:
 # URL environment variable explicitly:
 #
 #   production:
-#     url: <%= ENV['MY_APP_DATABASE_URL'] %>
+    url: <%= ENV['DATABASE_URL'] %>
 #
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
 production:
   <<: *default
-   adapter: postgresql
-  host: localhost
-  username: user
-  database: app-dev
+  database: tripcast_production
+  username: tripcast
+  password: <%= ENV['TRIPCAST_DATABASE_PASSWORD'] %>

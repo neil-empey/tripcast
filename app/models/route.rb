@@ -12,7 +12,7 @@ class Route < ApplicationRecord
     place1 = self.place1
     place2 = self.place2
 
-    url = "http://www.mapquestapi.com/directions/v2/route?key=#{consumer_key}&from=#{place1}&to=#{place2}"
+    url = "http://www.mapquestapi.com/directions/v2/route?key=#{ENV.fetch("consumer_key")}&from=#{place1}&to=#{place2}"
 
     response = HTTParty.get(url)
 
@@ -28,7 +28,7 @@ class Route < ApplicationRecord
 
     puts setOfCoordinates
 
-    weather = setOfCoordinates.map {|x| HTTParty.get("https://api.openweathermap.org/data/2.5/onecall?lat=#{x["lat"]}&lon=#{x["lng"]}&units=imperial&exclude=minutely,hourly,alerts&appid=#{secret_key}") }
+    weather = setOfCoordinates.map {|x| HTTParty.get("https://api.openweathermap.org/data/2.5/onecall?lat=#{x["lat"]}&lon=#{x["lng"]}&units=imperial&exclude=minutely,hourly,alerts&appid=#{ENV.fetch("secret_key")}") }
 
     #response.parsed_response["current"]["temp"]
 

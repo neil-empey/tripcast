@@ -77,7 +77,8 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  database: tripcast_production
-  username: tripcast
+  adapter: postgresql
+  host: localhost
+  username: user
+  database: tripcast_development-dev
   password: <%= ENV['TRIPCAST_DATABASE_PASSWORD'] %>

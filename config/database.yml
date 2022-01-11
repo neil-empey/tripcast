@@ -23,16 +23,13 @@ default: &default
 
 development:
   <<: *default
-  adapter: postgresql
-  host: localhost
-  username: user
-  database: tripcast_development-dev
+  database: tripcast_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
-  #username: tripcast
+  #username: myapp
   # The password associated with the postgres role (username).
   #password:
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -63,7 +60,8 @@ test:
 #
 # Instead, provide the password or a full connection URL as an environment
 # variable when you boot the app. For example:
-
+#
+#   DATABASE_URL="postgres://myuser:mypass@localhost/somedatabase"
 #
 # If the connection URL is provided in the special DATABASE_URL environment
 # variable, Rails will automatically merge its configuration values on top of
@@ -78,4 +76,6 @@ test:
 #
 production:
   <<: *default
-  url: "postgres://fxmezoejdyemql:97288564bdedf13235134707a00997c06d2706154aafcf1c65f511c1bf73f3ee@ec2-3-224-157-224.compute-1.amazonaws.com:5432/d5s3rkg3lenhm7"
+  database: trpicast_production
+  username: tripcast
+  password: <%= ENV['TRIPCAST_DATABASE_PASSWORD'] %>

@@ -16,10 +16,10 @@
     "node": "16.13.0"
   },
   "scripts": {
-    "build": "cd client && npm install && npm run build && cd ..",
+    "build": "cd client && yarn install && yarn build && cd ..",
     "deploy": "cp -a client/build/. public/",
-    "postinstall": "npm run build && npm run deploy && echo 'Client built!'"
-  },
+    "postinstall": "yarn build && yarn deploy && echo 'Client built!'"
+  },,
   "author": "Neil E",
   "license": "MIT"
 }

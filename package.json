@@ -3,17 +3,22 @@
   "version": "1.0.0",
   "description": "get your route and weather",
   "main": "index.js",
+  "repository": {
+    "url": "https://github.com/neil-empey/tripcast",
+    "type": "git"
+  },
   "directories": {
     "lib": "lib"
   },
   "engines": {
-    "node": "16.13.0",
-    "npm": "8.1.0"
+    "yarn": "1.22.17",
+    "npm": "8.1.0",
+    "node": "16.13.0"
   },
   "scripts": {
-    "build": "yarn --cwd client install && yarn --cwd client build",
+    "build": "cd client && yarn install && yarn build && cd ..",
     "deploy": "cp -a client/build/. public/",
-    "heroku-postbuild": "yarn build && yarn deploy"
+    "postinstall": "yarn build && yarn deploy && echo 'Client built!'"
   },
   "author": "Neil E",
   "license": "MIT"

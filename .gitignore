@@ -25,3 +25,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+# Ignore master key for decrypting credentials and more.
+/client/.env
+/config/master.key
+/config/secrets

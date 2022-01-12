@@ -25,6 +25,7 @@ class WeatherRouteText extends Component {
 
   getWeather() {
     let descrip = [];
+    console.log(this.state.weather);
     this.state.weather.map((x, i) => {
       if (!descrip.includes(x["daily"][0]["weather"][0]["description"])) {
         descrip.push(x["daily"][0]["weather"][0]["description"]);
@@ -35,8 +36,8 @@ class WeatherRouteText extends Component {
   }
 
   render() {
-    console.log(this.state.weather);
-    console.log(this.state.route);
+    // console.log(this.state.weather);
+    // console.log(this.state.route);
     return (
       <div className="row">
         <div className="column">

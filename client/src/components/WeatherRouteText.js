@@ -68,12 +68,12 @@ class WeatherRouteText extends Component {
               <li key={i}>{x}</li>
               <p>
                 Feels like low, high
-                {this.getMinFeels({ x })}, {this.getMaxFeels({ x })}{" "}
+                {this.getMinFeels(i)}, {this.getMaxFeels(i)}{" "}
               </p>
 
               <br></br>
               <p>
-                Wind speed {this.state.weather[x]["daily"][0]["wind_speed"]}
+                Wind speed {this.state.weather[i]["daily"][0]["wind_speed"]}
               </p>
             </span>
           ))}

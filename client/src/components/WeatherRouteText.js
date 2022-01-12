@@ -37,13 +37,14 @@ class WeatherRouteText extends Component {
   getWeather() {
     let descrip = [];
     console.log(this.state.weather);
+    let feelsLike = this.getFeelsLike();
     this.state.weather.map((x, i) => {
       if (!descrip.includes(x["daily"][0]["weather"][0]["description"])) {
         descrip.push(x["daily"][0]["weather"][0]["description"]);
       }
     });
 
-    return descrip;
+    return [descrip, feelsLike];
   }
 
   render() {
@@ -64,14 +65,15 @@ class WeatherRouteText extends Component {
         </div>
         <div className="column">
           <h3>Plan on the following weather conditions during your trip.</h3>
-          {this.getWeather().map((x, i) => (
+          {this.getWeather()[0].map((x, i) => (
             <span>
               <h4>Stage {i + 1}</h4>
               <li key={i}>{x}</li>
               <p>
-                Feels like low, high {this.getFeelsLike()[x]["morn"]} ,{" "}
-                {this.getFeelsLike()[x]["day"]}
+                Feels like low, high {this.getWeather()[1][x]["morn"]} ,{" "}
+                {this.getWeather()[1][x]["day"]}
               </p>
+
               <br></br>
               <p>
                 Wind speed {this.state.weather[x]["daily"][0]["wind_speed"]}

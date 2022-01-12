@@ -23,28 +23,17 @@ class WeatherRouteText extends Component {
     return [low, high];
   }
 
-  getFeelsLike() {
-    let feels = [];
-    this.state.weather.map((x, i) => {
-      feels.push({
-        day: x["daily"][0]["feels_like"]["day"],
-        morn: x["daily"][0]["feels_like"]["morn"]
-      });
-    });
-    return feels;
-  }
-
   getWeather() {
     let descrip = [];
     console.log(this.state.weather);
-    let feelsLike = this.getFeelsLike();
+
     this.state.weather.map((x, i) => {
       if (!descrip.includes(x["daily"][0]["weather"][0]["description"])) {
         descrip.push(x["daily"][0]["weather"][0]["description"]);
       }
     });
 
-    return [descrip, feelsLike];
+    return descrip;
   }
 
   render() {
@@ -65,13 +54,14 @@ class WeatherRouteText extends Component {
         </div>
         <div className="column">
           <h3>Plan on the following weather conditions during your trip.</h3>
-          {this.getWeather()[0].map((x, i) => (
+          {this.getWeather().map((x, i) => (
             <span>
               <h4>Stage {i + 1}</h4>
               <li key={i}>{x}</li>
               <p>
-                Feels like low, high {this.getWeather()[1][x]["morn"]} ,{" "}
-                {this.getWeather()[1][x]["day"]}
+                Feels like low, high
+                {this.state.weather[x]["daily"][0]["feels_like"]["morn"]},{" "}
+                {this.state.weather[x]["daily"][0]["feels_like"]["day"]} ,{" "}
               </p>
 
               <br></br>

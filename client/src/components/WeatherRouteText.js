@@ -65,10 +65,13 @@ class WeatherRouteText extends Component {
           {this.getWeather().map((x, i) => (
             <span>
               <h4>Stage {i + 1}</h4>
-              <li key={i}>{x}</li>
+              <li className="no-bullets" key={i}>
+                {x}
+              </li>
               <p>
-                Feels like low, high
-                {this.getMinFeels(i)}, {this.getMaxFeels(i)}{" "}
+                Feels like low{""}
+                {this.getMinFeels(i)}, high{""}
+                {this.getMaxFeels(i)}{" "}
               </p>
 
               <br></br>

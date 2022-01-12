@@ -50,7 +50,9 @@ class WeatherRouteText extends Component {
     return (
       <div className="row">
         <div className="column">
-          <h3 className="stage">Directions</h3>
+          <h3 className="stage">
+            <u>Directions</u>
+          </h3>
           <ul className="no-bullets">
             {this.state.route.map((x, i) => (
               <>
@@ -61,7 +63,9 @@ class WeatherRouteText extends Component {
           </ul>
         </div>
         <div className="column">
-          <h3>Plan on the following weather conditions during your trip.</h3>
+          <h3>
+            <u>Plan on the following weather conditions during your trip.</u>
+          </h3>
           {this.getWeather().map((x, i) => (
             <span>
               <h4 className="stage">Stage {i + 1}</h4>
@@ -71,18 +75,18 @@ class WeatherRouteText extends Component {
               <p>
                 <pre>
                   Feels like low {this.getMinFeels(i)}, high{" "}
-                  {this.getMaxFeels(i)}
-                  Wind speed {this.state.weather[i]["daily"][0]["wind_speed"]}
+                  {this.getMaxFeels(i)}, Wind speed{" "}
+                  {this.state.weather[i]["daily"][0]["wind_speed"]}
                 </pre>
               </p>
             </span>
           ))}
 
           <br></br>
-          <h3>
-            Expect a minimum temperature of {this.getMinMax()[0]} and maximum of{" "}
-            {this.getMinMax()[1]}
-          </h3>
+          <h4>
+            Expect an actual minimum temperature of {this.getMinMax()[0]} and
+            maximum of {this.getMinMax()[1]}
+          </h4>
         </div>
         <footer>
           <p>

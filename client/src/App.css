@@ -6,9 +6,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Sonsie+One&display=swap');
 
 html,
-.step {
-color: black;
-}
 
 body {
   text-align: center;
@@ -81,6 +78,10 @@ ol.gradient-list {
 }
 .trip {
   font-family: 'Sonsie One', cursive;
+}
+
+.step {
+  color: black;
 }
 
 .column {

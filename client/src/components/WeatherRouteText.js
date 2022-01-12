@@ -23,6 +23,14 @@ class WeatherRouteText extends Component {
     return [low, high];
   }
 
+  getMinFeels(x) {
+    return this.state.weather[x]["daily"][0]["feels_like"]["morn"];
+  }
+
+  getMaxFeels(x) {
+    return this.state.weather[x]["daily"][0]["feels_like"]["day"];
+  }
+
   getWeather() {
     let descrip = [];
     console.log(this.state.weather);
@@ -60,8 +68,7 @@ class WeatherRouteText extends Component {
               <li key={i}>{x}</li>
               <p>
                 Feels like low, high
-                {this.state.weather[x]["daily"][0]["feels_like"]["morn"]},{" "}
-                {this.state.weather[x]["daily"][0]["feels_like"]["day"]} ,{" "}
+                {this.getMinFeels(x)}, {this.getMaxFeels(x)}{" "}
               </p>
 
               <br></br>

@@ -12,6 +12,10 @@ body {
   padding: 0;
 }
 
+.step {
+color: black;
+}
+
 body {
   background-color: #83e4e2;
   color: #1d1f20;;

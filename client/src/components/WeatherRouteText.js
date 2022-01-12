@@ -23,6 +23,17 @@ class WeatherRouteText extends Component {
     return [low, high];
   }
 
+  getFeelsLike() {
+    let feels = [];
+    this.state.weather.map((x, i) => {
+      feels.push({
+        day: x["daily"][0]["feels_like"]["day"],
+        morn: x["daily"][0]["feels_like"]["morn"]
+      });
+    });
+    return feels;
+  }
+
   getWeather() {
     let descrip = [];
     console.log(this.state.weather);
@@ -45,21 +56,26 @@ class WeatherRouteText extends Component {
           <ul className="no-bullets">
             {this.state.route.map((x, i) => (
               <>
-                <p>STEP {i + 1}</p>
+                <p className="step">STEP {i + 1}</p>
                 <li key={i}>{x}</li>
               </>
             ))}
           </ul>
         </div>
         <div className="column">
-          <h3>
-            You can plan on the following weather conditions over the course of
-            your trip.
-          </h3>
+          <h3>Plan on the following weather conditions during your trip.</h3>
           {this.getWeather().map((x, i) => (
             <span>
               <h4>Stage {i + 1}</h4>
               <li key={i}>{x}</li>
+              <p>
+                Feels like low, high {this.getFeelsLike()[x]["morn"]} ,{" "}
+                {this.getFeelsLike()[x]["day"]}
+              </p>
+              <br></br>
+              <p>
+                Wind speed {this.state.weather[x]["daily"][0]["wind_speed"]}
+              </p>
             </span>
           ))}
 

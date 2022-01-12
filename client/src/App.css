@@ -55,7 +55,11 @@ li.no-bullets {
   position: relative;
 }
 .stage {
-  color: orange;
+  color: black;
+}
+
+.title {
+  color: SlateBlue;
 }
 
 

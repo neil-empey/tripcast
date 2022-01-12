@@ -48,7 +48,7 @@ class WeatherRouteText extends Component {
     return (
       <div className="row">
         <div className="column">
-          <h3 className="stage">
+          <h3 className="title">
             <u>Directions</u>
           </h3>
           <ul className="no-bullets">
@@ -61,7 +61,7 @@ class WeatherRouteText extends Component {
           </ul>
         </div>
         <div className="column">
-          <h3>
+          <h3 className="title">
             <u>Plan on the following weather conditions during your trip.</u>
           </h3>
           {this.getWeather().map((x, i) => (

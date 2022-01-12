@@ -36,9 +36,7 @@ class WeatherRouteText extends Component {
     console.log(this.state.weather);
 
     this.state.weather.map((x, i) => {
-      if (!descrip.includes(x["daily"][0]["weather"][0]["description"])) {
-        descrip.push(x["daily"][0]["weather"][0]["description"]);
-      }
+      descrip.push(x["daily"][0]["weather"][0]["description"]);
     });
 
     return descrip;

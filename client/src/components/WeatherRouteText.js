@@ -3,7 +3,8 @@ import React, { Component } from "react";
 class WeatherRouteText extends Component {
   state = {
     weather: this.props.weather,
-    route: this.props.route
+    route: this.props.route,
+    map: this.props.map
   };
 
   getMinMax() {
@@ -47,6 +48,7 @@ class WeatherRouteText extends Component {
     // console.log(this.state.route);
     return (
       <div className="row">
+        <img src={this.state.map} alt="route map"></img>
         <div className="column">
           <h3 className="title">
             <u>Directions</u>

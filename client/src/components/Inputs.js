@@ -13,7 +13,8 @@ class Inputs extends React.Component {
       dest: "",
       isActive: true,
       route: ["processing"],
-      weather: ["processing"]
+      weather: ["processing"],
+      map: ""
     };
 
     this.handleChangeOrigin = this.handleChangeOrigin.bind(this);
@@ -28,7 +29,8 @@ class Inputs extends React.Component {
       dest: "",
       isActive: true,
       route: ["processing"],
-      weather: ["processing"]
+      weather: ["processing"],
+      map: ""
     });
   }
 
@@ -51,6 +53,7 @@ class Inputs extends React.Component {
         let data = response.data;
         this.setState({ route: data.routeDirections });
         this.setState({ weather: data.routeWeather });
+        this.setState({ map: data.map });
       });
 
     this.setState({ origin: "", dest: "", isActive: false });
@@ -98,12 +101,13 @@ class Inputs extends React.Component {
             <WeatherRouteText
               weather={this.state.weather}
               route={this.state.route}
+              map={this.state.map}
             />
             <Button function={this.returnToInput} text={"New Search"} />
           </div>
         );
       } else {
-        return <h3>Processing</h3>;
+        return <h3>Processing...</h3>;
       }
     }
   }

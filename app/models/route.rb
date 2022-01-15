@@ -14,7 +14,10 @@ class Route < ApplicationRecord
 
     url = "http://www.mapquestapi.com/directions/v2/route?key=#{ENV.fetch("consumer_key")}&from=#{place1}&to=#{place2}"
 
+    mapUrl = "https://www.mapquestapi.com/staticmap/v5/map?start=#{place1}|flag-start&end=#{place2}|flag-end&size=@2x&key=#{ENV.fetch("consumer_key")}"
+
     response = HTTParty.get(url)
+    map = HTTParty.get(mapUrl)
 
     array = response.parsed_response["route"]["legs"][0]["maneuvers"]
     time = DateTime.now.to_s(:time)
@@ -28,11 +31,11 @@ class Route < ApplicationRecord
 
     puts setOfCoordinates
 
-    weather = setOfCoordinates.map {|x| HTTParty.get("https://api.openweathermap.org/data/2.5/onecall?lat=#{x["lat"]}&lon=#{x["lng"]}&units=imperial&exclude=minutely,hourly,alerts&appid=#{ENV.fetch("secret_key")}") }
+    weather = setOfCoordinates.map {|x| HTTParty.get("https://api.openweathermap.org/data/2.5/onecall?lat=#{x["lat"]}&lon=#{x["lng"]}&units=imperial&exclude=minutely,hourly&appid=#{ENV.fetch("secret_key")}") }
 
     #response.parsed_response["current"]["temp"]
 
-    weatherDirections = {routeWeather: weather, routeDirections: setOfDirections}
+    weatherDirections = {routeWeather: weather, routeDirections: setOfDirections, routeMap: map}
 
     weatherDirections
 

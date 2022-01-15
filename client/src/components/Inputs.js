@@ -44,10 +44,6 @@ class Inputs extends React.Component {
   handleSubmit(event) {
     let destinations = { origin: this.state.origin, dest: this.state.dest };
 
-    const apiProxy = createProxyMiddleware(
-      "https://www.mapquestapi.com/staticmap/v5/map?start=${this.state.origin}|flag-start&end=${this.state.dest}|flag-end&size=@2x&key=#{ENV.fetch('consumer_key')}"
-    );
-
     axios
       .post("/destinations", {
         destinations
@@ -56,15 +52,6 @@ class Inputs extends React.Component {
         let data = response.data;
         this.setState({ route: data.routeDirections });
         this.setState({ weather: data.routeWeather });
-      });
-
-    axios
-      .get(apiProxy)
-      .then(response => {
-        console.log(response.data);
-      })
-      .catch(({ request }) => {
-        console.log(request);
       });
 
     this.setState({ origin: "", dest: "", isActive: false });

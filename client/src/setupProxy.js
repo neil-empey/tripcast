@@ -13,12 +13,4 @@ module.exports = app => {
       }
     })
   );
-  app.use(
-    createProxyMiddleware("/api", {
-      target:
-        'https://www.mapquestapi.com/staticmap/v5/map?start=${this.state.origin}|flag-start&end=${this.state.dest}|flag-end&size=@2x&key=#{ENV.fetch("consumer_key")}',
-      // API endpoint 2
-      changeOrigin: true
-    })
-  );
 };

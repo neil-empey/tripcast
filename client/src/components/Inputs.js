@@ -55,13 +55,9 @@ class Inputs extends React.Component {
         this.setState({ weather: data.routeWeather });
       });
 
-    axios
-      .get(
-        'https://www.mapquestapi.com/staticmap/v5/map?start=${this.state.origin}|flag-start&end=${this.state.dest}|flag-end&size=@2x&key=#{ENV.fetch("consumer_key")}'
-      )
-      .then(response => {
-        console.log(response.data);
-      });
+    axios.get("/api2").then(response => {
+      console.log(response.data);
+    });
 
     this.setState({ origin: "", dest: "", isActive: false });
     event.preventDefault();

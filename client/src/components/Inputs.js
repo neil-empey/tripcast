@@ -55,9 +55,16 @@ class Inputs extends React.Component {
         this.setState({ weather: data.routeWeather });
       });
 
-    axios.get("/api2").then(response => {
-      console.log(response.data);
-    });
+    axios
+      .get("/api2")
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(({ response }) => {
+        console.log(response.data);
+        console.log(response.status);
+        console.log(response.headers);
+      });
 
     this.setState({ origin: "", dest: "", isActive: false });
     event.preventDefault();

@@ -34,7 +34,6 @@ class WeatherRouteText extends Component {
 
   getWeather() {
     let descrip = [];
-    console.log(this.state.weather);
 
     this.state.weather.map((x, i) => {
       descrip.push(x["daily"][0]["weather"][0]["description"]);

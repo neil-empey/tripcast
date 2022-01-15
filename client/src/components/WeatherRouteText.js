@@ -48,7 +48,7 @@ class WeatherRouteText extends Component {
     // console.log(this.state.route);
     return (
       <div className="row">
-        <img src={this.state.map} alt="route map"></img>
+        <img src={this.state.map} alt="route map" />
         <div className="column">
           <h3 className="title">
             <u>Directions</u>

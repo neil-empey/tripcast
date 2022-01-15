@@ -60,10 +60,8 @@ class Inputs extends React.Component {
       .then(response => {
         console.log(response.data);
       })
-      .catch(({ response }) => {
-        console.log(response.data);
-        console.log(response.status);
-        console.log(response.headers);
+      .catch(({ request }) => {
+        console.log(request);
       });
 
     this.setState({ origin: "", dest: "", isActive: false });

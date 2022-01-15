@@ -4,6 +4,7 @@ import WeatherRouteText from "./WeatherRouteText";
 import Button from "./Button";
 import axios from "axios";
 import "../App.css";
+const { createProxyMiddleware } = require("http-proxy-middleware");
 
 class Inputs extends React.Component {
   constructor(props) {
@@ -43,7 +44,9 @@ class Inputs extends React.Component {
   handleSubmit(event) {
     let destinations = { origin: this.state.origin, dest: this.state.dest };
 
-    const baseURL = "http://127.0.0.1:3001/destinations";
+    const apiProxy = createProxyMiddleware(
+      "https://www.mapquestapi.com/staticmap/v5/map?start=${this.state.origin}|flag-start&end=${this.state.dest}|flag-end&size=@2x&key=#{ENV.fetch('consumer_key')}"
+    );
 
     axios
       .post("/destinations", {
@@ -56,9 +59,7 @@ class Inputs extends React.Component {
       });
 
     axios
-      .get(
-        'https://www.mapquestapi.com/staticmap/v5/map?start=${this.state.origin}|flag-start&end=${this.state.dest}|flag-end&size=@2x&key=#{ENV.fetch("consumer_key")}'
-      )
+      .get(apiProxy)
       .then(response => {
         console.log(response.data);
       })

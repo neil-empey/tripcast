@@ -20,7 +20,7 @@ class Route < ApplicationRecord
     response = HTTParty.get(url)
     mapFile = HTTParty.get(mapUrl)
 
-    Cloudinary::Uploader.upload(mapFile), :public_id => "#{place1}#{place2}"
+    Cloudinary::Uploader.upload(mapFile, :public_id => "#{place1}#{place2}")
 
     puts "pixxa"
 

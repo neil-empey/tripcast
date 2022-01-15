@@ -21,6 +21,8 @@ class Route < ApplicationRecord
 
     Cloudinary::Uploader.upload(mapFile), :public_id => "#{place1}#{place2}"
 
+    puts "pixxa"
+
     map = mapFile.parsed_response
 
     array = response.parsed_response["route"]["legs"][0]["maneuvers"]

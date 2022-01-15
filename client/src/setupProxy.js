@@ -18,7 +18,8 @@ module.exports = function(app) {
       'https://www.mapquestapi.com/staticmap/v5/map?start=${this.state.origin}|flag-start&end=${this.state.dest}|flag-end&size=@2x&key=#{ENV.fetch("consumer_key")}',
       {
         target:
-          'https://www.mapquestapi.com/staticmap/v5/map?start=${this.state.origin}|flag-start&end=${this.state.dest}|flag-end&size=@2x&key=#{ENV.fetch("consumer_key")}' // API endpoint 2
+          'https://www.mapquestapi.com/staticmap/v5/map?start=${this.state.origin}|flag-start&end=${this.state.dest}|flag-end&size=@2x&key=#{ENV.fetch("consumer_key")}',
+        changeOrigin: true // API endpoint 2
       }
     )
   );

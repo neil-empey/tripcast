@@ -17,7 +17,9 @@ class Route < ApplicationRecord
     mapUrl = "https://www.mapquestapi.com/staticmap/v5/map?start=#{place1}|flag-start&end=#{place2}|flag-end&size=@2x&key=#{ENV.fetch("consumer_key")}"
 
     response = HTTParty.get(url)
-    map = HTTParty.get(mapUrl)
+    mapFile = HTTParty.get(mapUrl)
+
+    map = mapFile.parsed_response
 
     array = response.parsed_response["route"]["legs"][0]["maneuvers"]
     time = DateTime.now.to_s(:time)

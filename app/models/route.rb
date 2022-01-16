@@ -49,6 +49,7 @@ req_options = {
 
 response2 = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
   http.request(request)
+end
 
 
 # response.code

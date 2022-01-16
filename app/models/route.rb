@@ -29,9 +29,9 @@ class Route < ApplicationRecord
       method: 'POST'
     }
 
-    HTTParty.post("https://api.cloudinary.com/v1_1/#{ENV.fetch('cloud_name')}/auto/tripcast", options)
+    response2 = HTTParty.post("https://api.cloudinary.com/v1_1/#{ENV.fetch('cloud_name')}/auto/tripcast", options)
 
-    puts "pixxa"
+    puts response2
 
     map = mapFile.parsed_response
 

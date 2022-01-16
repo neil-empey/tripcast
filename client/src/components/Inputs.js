@@ -96,10 +96,13 @@ class Inputs extends React.Component {
       ) {
         return (
           <div>
+            <img
+              src=("https://www.mapquestapi.com/staticmap/v5/map?start=Boise|flag-start&end=Denver|flag-end&size=@2x&key=" + process.env.["consumer_key"].toString())
+              alt="route map"
+            />
             <WeatherRouteText
               weather={this.state.weather}
               route={this.state.route}
-              map={this.state.map}
             />
             <Button function={this.returnToInput} text={"New Search"} />
           </div>

@@ -4,7 +4,6 @@ class WeatherRouteText extends Component {
   state = {
     weather: this.props.weather,
     route: this.props.route,
-    map: this.props.map
   };
 
   getMinMax() {
@@ -47,10 +46,6 @@ class WeatherRouteText extends Component {
     // console.log(this.state.route);
     return (
       <div className="row">
-        <img
-          src="https://www.mapquestapi.com/staticmap/v5/map?start=Boise|flag-start&end=Denver|flag-end&size=@2x&key=${ENV.fetch('consumer_key')}"
-          alt="route map"
-        />
         <div className="column">
           <h3 className="title">
             <u>Directions</u>

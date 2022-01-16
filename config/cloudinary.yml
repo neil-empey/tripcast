@@ -1,0 +1,6 @@
+production:
+  cloud_name: ENV.fetch("cloud_name")
+  api_key: ENV.fetch("api_key")
+  api_secret: ENV.fetch("api_secret")
+  secure: true
+  cdn_subdomain: true

@@ -15,14 +15,17 @@ class Inputs extends React.Component {
       isActive: true,
       route: ["processing"],
       weather: ["processing"],
-      map: ""
+      url: ""
     };
+
+
 
     this.handleChangeOrigin = this.handleChangeOrigin.bind(this);
     this.handleChangeDest = this.handleChangeDest.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.returnToInput = this.returnToInput.bind(this);
   }
+
 
   returnToInput(event) {
     this.setState({
@@ -52,6 +55,7 @@ class Inputs extends React.Component {
         let data = response.data;
         this.setState({ route: data.routeDirections });
         this.setState({ weather: data.routeWeather });
+        this.setState({ url: (`https://www.mapquestapi.com/staticmap/v5/map?start=${this.state.origin}|flag-start&end=${this.state.dest}|flag-end&size=@2x&key=` + ENV.fetch("consumer_key")).toString()
       });
 
     this.setState({ origin: "", dest: "", isActive: false });
@@ -97,7 +101,7 @@ class Inputs extends React.Component {
         return (
           <div>
             <img
-              src=("https://www.mapquestapi.com/staticmap/v5/map?start=Boise|flag-start&end=Denver|flag-end&size=@2x&key=" + process.env.["consumer_key"].toString())
+              src={this.state.url}
               alt="route map"
             />
             <WeatherRouteText

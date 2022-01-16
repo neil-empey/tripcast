@@ -1,6 +1,7 @@
 class Route < ApplicationRecord
   include HTTParty
   include Cloudinary
+  require 'json'
   # validates :dt, :lat1, :long1, :lat2, :long2, presence: true
   validates :place1, :place2, presence: true
 
@@ -21,7 +22,7 @@ class Route < ApplicationRecord
     mapFile = HTTParty.get(mapUrl)
 
     options = {
-      body: JSON.stringify(mapFile),
+      body: JSON.generate(mapFile),
       headers: {
         'content-type': 'application/json'
       },

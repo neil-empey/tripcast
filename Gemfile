@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
-
+gem 'dotenv-rails', groups: [:development, :test]
 ruby '2.6.8'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
@@ -19,6 +19,7 @@ gem 'httparty', '~> 0.18.1'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'pry'
 gem 'cloudinary'
+gem 'dotenv'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -33,6 +34,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'foreman'
+  gem 'dotenv'
 end
 
 group :development do
@@ -41,6 +43,7 @@ group :development do
   gem 'spring'
   gem 'foreman'
   gem 'cloudinary'
+  gem 'dotenv'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

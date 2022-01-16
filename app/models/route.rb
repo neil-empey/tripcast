@@ -22,7 +22,7 @@ class Route < ApplicationRecord
     mapFile = HTTParty.get(mapUrl)
 
     options = {
-      body: JSON.generate(mapFile),
+      body: mapFile,
       headers: {
         'content-type': 'application/json'
       },

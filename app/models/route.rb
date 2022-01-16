@@ -20,7 +20,15 @@ class Route < ApplicationRecord
     response = HTTParty.get(url)
     mapFile = HTTParty.get(mapUrl)
 
-    Cloudinary::Uploader.upload(mapFile, :public_id => "#{place1}#{place2}")
+    options = {
+      body: JSON.stringify(mapFile),
+      headers: {
+        'content-type': 'application/json'
+      },
+      method: 'POST'
+    }
+
+    HTTParty.post(ENV['CLOUDINARY_URL'], options)
 
     puts "pixxa"
 

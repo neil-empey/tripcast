@@ -22,14 +22,14 @@ class Route < ApplicationRecord
     mapFile = HTTParty.get(mapUrl)
 
     options = {
-      body: mapFile,
+      body: mapUrl,
       headers: {
         'content-type': 'application/json'
       },
       method: 'POST'
     }
 
-    HTTParty.post("https://api.cloudinary.com/v1_1/#{ENV.fetch('cloud_name')}/auto/upload", mapUrl)
+    HTTParty.post("https://api.cloudinary.com/v1_1/#{ENV.fetch('cloud_name')}/auto/tripcast", options)
 
     puts "pixxa"
 

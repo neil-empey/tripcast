@@ -99,7 +99,7 @@ class Inputs extends React.Component {
     if (this.state.isActive !== true) {
       if (
         this.state.route[0] !== "processing" &&
-        this.state.weather[0] !== "processing"
+        this.state.weather[0] !== "processing" && this.state.url !== ""
       ) {
         return (
           <div>

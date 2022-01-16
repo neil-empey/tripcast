@@ -29,7 +29,7 @@ class Route < ApplicationRecord
       method: 'POST'
     }
 
-    HTTParty.post(ENV['CLOUDINARY_URL'], options)
+    HTTParty.post("https://www." + ENV['CLOUDINARY_URL'], options)
 
     puts "pixxa"
 

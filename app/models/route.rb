@@ -2,6 +2,8 @@ class Route < ApplicationRecord
   include HTTParty
   include Cloudinary
   require 'json'
+  require 'net/http'
+  require 'uri'
   # validates :dt, :lat1, :long1, :lat2, :long2, presence: true
   validates :place1, :place2, presence: true
 
@@ -18,18 +20,41 @@ class Route < ApplicationRecord
 
     mapUrl = "https://www.mapquestapi.com/staticmap/v5/map?start=#{place1}|flag-start&end=#{place2}|flag-end&size=@2x&key=#{ENV.fetch("consumer_key")}"
 
+    puts mapUrl
+
     response = HTTParty.get(url)
-    mapFile = HTTParty.get(mapUrl)
 
-    options = {
-      body: mapUrl,
-      headers: {
-        'content-type': 'application/json'
-      },
-      method: 'POST'
-    }
+    # options = {
+    #   body: mapUrl,
+    #   headers: {
+    #     'content-type': 'application/json'
+    #   },
+    #   method: 'POST'
+    # }
 
-    response2 = HTTParty.post("https://api.cloudinary.com/v1_1/#{ENV.fetch('cloud_name')}/auto/tripcast", options)
+    # response2 = HTTParty.post("https://api.cloudinary.com/v1_1/#{ENV.fetch('cloud_name')}/auto/tripcast", options)
+
+uri = URI.parse("https://api.cloudinary.com/v1_1/")
+request = Net::HTTP::Post.new(uri)
+request.set_form_data(
+  "cloud name" => "#{ENV.fetch("cloud_name")}",
+  "resource_type" => "auto",
+  "file" => "https://www.mapquestapi.com/staticmap/v5/map?start=#{place1}|flag-start&end=#{place2}|flag-end&size=@2x&key=#{ENV.fetch("consumer_key")}",
+  "upload_preset" => "tripcast"
+)
+
+req_options = {
+  use_ssl: uri.scheme == "https",
+}
+
+response2 = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+  http.request(request)
+
+
+# response.code
+# response.body
+
+
 
     puts response2
 

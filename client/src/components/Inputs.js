@@ -15,7 +15,7 @@ class Inputs extends React.Component {
       isActive: true,
       route: ["processing"],
       weather: ["processing"],
-      url: ""
+      map: ""
     };
 
 
@@ -55,8 +55,8 @@ class Inputs extends React.Component {
         let data = response.data;
         this.setState({ route: data.routeDirections });
         this.setState({ weather: data.routeWeather });
-        this.setState({ url: ((`https://www.mapquestapi.com/staticmap/v5/map?start=${destinations["origin"]}|flag-start&end=${destinations["dest"]}|flag-end&size=@2x&key=`).toString() + (ENV.fetch("REACT_APP_CONSUMER_KEY").toString())});
-        console.log(this.state.url)
+        // this.setState({ url: ((`https://www.mapquestapi.com/staticmap/v5/map?start=${destinations["origin"]}|flag-start&end=${destinations["dest"]}|flag-end&size=@2x&key=`).toString() + (ENV.fetch("REACT_APP_CONSUMER_KEY")).toString())});
+        // console.log(this.state.url)
       });
 
     this.setState({ origin: "", dest: "", isActive: false });
@@ -104,7 +104,7 @@ class Inputs extends React.Component {
         return (
           <div>
             <img
-              src={this.state.url}
+              src={this.state.map}
               alt="route map"
             />
             <WeatherRouteText

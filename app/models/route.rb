@@ -29,7 +29,7 @@ class Route < ApplicationRecord
       method: 'POST'
     }
 
-    HTTParty.post("https://api.cloudinary.com/v1_1/#{ENV.fetch('cloud_name')}/auto/upload", mapFile)
+    HTTParty.post("https://api.cloudinary.com/v1_1/#{ENV.fetch('cloud_name')}/auto/upload", mapUrl)
 
     puts "pixxa"
 

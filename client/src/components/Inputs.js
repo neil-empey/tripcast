@@ -55,7 +55,7 @@ class Inputs extends React.Component {
         let data = response.data;
         this.setState({ route: data.routeDirections });
         this.setState({ weather: data.routeWeather });
-        this.setState({ url: (`https://www.mapquestapi.com/staticmap/v5/map?start=${this.state.origin}|flag-start&end=${this.state.dest}|flag-end&size=@2x&key=` + process.env.consumer_key).toString()});
+        this.setState({ url: ((`https://www.mapquestapi.com/staticmap/v5/map?start=${this.state.origin}|flag-start&end=${this.state.dest}|flag-end&size=@2x&key=`).toString() + (`${process.env.consumer_key}`).toString())});
       });
 
     this.setState({ origin: "", dest: "", isActive: false });

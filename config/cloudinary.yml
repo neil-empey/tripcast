@@ -1,6 +1,4 @@
 production:
-  cloud_name: ENV.fetch("cloud_name")
-  api_key: ENV.fetch("api_key")
-  api_secret: ENV.fetch("api_secret")
-  secure: true
-  cdn_subdomain: true
+  cloud_name: ENV['CLOUD_NAME']
+  api_key: ENV['API_KEY']
+  api_secret: ENV['API_SECRET']

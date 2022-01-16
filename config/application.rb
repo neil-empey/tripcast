@@ -1,6 +1,7 @@
 require_relative "boot"
 
 require "rails"
+require "dotenv"
 # Pick the frameworks you want:
 require "active_model/railtie"
 require "active_job/railtie"
@@ -19,14 +20,14 @@ require "action_cable/engine"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-Dotenv::Railtie.load
 
-HOSTNAME = ENV['HOSTNAME']
 
 module Tripcast
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
+
+    Dotenv.load
 
     # Configuration for the application, engines, and railties goes here.
     #

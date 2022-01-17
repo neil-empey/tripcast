@@ -32,7 +32,7 @@ class Route < ApplicationRecord
 
     file = open(uri)
 
-    puts file
+    puts uri
 
 
     # options = {

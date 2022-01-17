@@ -28,7 +28,7 @@ class Route < ApplicationRecord
     response = HTTParty.get(url)
     response3 = HTTParty.get(mapUrl)
 
-
+    info = response3.parsed_response.force_encoding('utf-8')
 
 
     # options = {
@@ -75,7 +75,7 @@ class Route < ApplicationRecord
 
     #response.parsed_response["current"]["temp"]
 
-    weatherDirections = {routeWeather: weather, routeDirections: setOfDirections, map: response3}
+    weatherDirections = {routeWeather: weather, routeDirections: setOfDirections, map: info}
 
     weatherDirections
 

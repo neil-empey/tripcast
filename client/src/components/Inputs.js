@@ -64,7 +64,8 @@ class Inputs extends React.Component {
   }
 
   createMarkup() {
-    return {_html: this.state.map}
+    let pic = Buffer.from(this.state.map, "base64").toString()
+    return pic
   }
 
 
@@ -107,7 +108,7 @@ class Inputs extends React.Component {
       ) {
         return (
           <div>
-            <img dangerouslySetInnerHTML={this.createMarkup}/>
+            <img src={this.createMarkup}/>
             <WeatherRouteText
               weather={this.state.weather}
               route={this.state.route}

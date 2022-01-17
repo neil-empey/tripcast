@@ -25,7 +25,7 @@ class Route < ApplicationRecord
     response = HTTParty.get(url)
     response3 = HTTParty.get(mapUrl)
 
-    puts response3
+    puts response3.parsed_response
 
     # options = {
     #   body: mapUrl,
@@ -71,7 +71,7 @@ class Route < ApplicationRecord
 
     #response.parsed_response["current"]["temp"]
 
-    weatherDirections = {routeWeather: weather, routeDirections: setOfDirections, map: response3}
+    weatherDirections = {routeWeather: weather, routeDirections: setOfDirections, map: response3.parsed_response}
 
     weatherDirections
 

@@ -46,7 +46,6 @@ class WeatherRouteText extends Component {
       } else {
         conditions = {
           current_descrip: x["daily"][0]["weather"][0]["description"],
-          alerts: x["alerts"][0]["event"],
           icon: x["daily"][0]["weather"][0]["icon"]
         };
         descrip.push({

@@ -24,7 +24,7 @@ class Inputs extends React.Component {
     this.handleChangeDest = this.handleChangeDest.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.returnToInput = this.returnToInput.bind(this);
-    this.createMarkup = this.createMarkup.bind(this);
+    // this.createMarkup = this.createMarkup.bind(this);
   }
 
 
@@ -111,7 +111,7 @@ class Inputs extends React.Component {
     if (this.state.isActive !== true) {
       if (
         this.state.route[0] !== "processing" &&
-        this.state.weather[0] !== "processing" && this.state.url !== ""
+        this.state.weather[0] !== "processing"
       ) {
         return (
           <div>

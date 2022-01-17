@@ -62,6 +62,10 @@ class Inputs extends React.Component {
     event.preventDefault();
   }
 
+  function createMarkup() {
+    return {_html: this.state.map}
+  }
+
 
 
   render() {
@@ -102,7 +106,7 @@ class Inputs extends React.Component {
       ) {
         return (
           <div>
-            <div dangerouslySetInnerHTML={this.state.map}></div>
+            <div dangerouslySetInnerHTML={createMarkup()}></div>
             <WeatherRouteText
               weather={this.state.weather}
               route={this.state.route}

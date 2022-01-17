@@ -29,12 +29,10 @@ class Route < ApplicationRecord
     response3 = HTTParty.get(mapUrl)
 
     uri = URI.parse("https://www.mapquestapi.com/staticmap/v5/map?start=#{place1}|flag-start&end=#{place2}|flag-end&size=@2x&key=#{ENV.fetch("consumer_key")}")
-    file = Tempfile.new("map", encoding: 'utf-8')
-    open(uri) {|map| file.write(map.read.force_encoding("UTF-8"))}
 
-     file.open do |x|
-       puts x
-     end
+    file = open(uri)
+
+    puts file
 
 
     # options = {

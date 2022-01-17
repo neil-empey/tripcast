@@ -42,7 +42,7 @@ class WeatherRouteText extends Component {
   }
 
   render() {
-    // console.log(this.state.weather);
+     console.log(this.state.weather);
     // console.log(this.state.route);
     return (
       <div className="row">

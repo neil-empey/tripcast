@@ -69,9 +69,9 @@ class Inputs extends React.Component {
       destinations
     })
     .then(response => {
-      let data = response.data;
+      let data = response;
       console.log(data);
-      this.setState({ map: data.map })
+      // this.setState({ map: data.map })
     });
   }
 

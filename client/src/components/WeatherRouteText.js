@@ -72,7 +72,7 @@ class WeatherRouteText extends Component {
             <span>
               <h5 className="stage">Stage {i + 1}</h5>
               <li className="no-bullets" key={i}>
-                <img src="http://openweathermap.org/img/wn/`${x["icon"]}`@2x.png" alt="weather icon"/>
+                <img src="`http://openweathermap.org/img/wn/${x["icon"]}@2x.png`" alt="weather icon"/>
                 <p>{x["current_descrip"]}</p>
                 <h5><u>Roads Hazards and Alerts</u></h5>
                 <p>{x["alerts"]}</p>

@@ -19,9 +19,9 @@ class Route < ApplicationRecord
 
     mapUrl = "https://www.mapquestapi.com/staticmap/v5/map?start=#{place1}|flag-start&end=#{place2}|flag-end&size=@2x&key=#{ENV.fetch("consumer_key")}"
 
-    response = Cloudinary::Uploader.upload(mapUrl)
+    response2 = Cloudinary::Uploader.upload(mapUrl)
 
-    puts response
+    response = HTTParty.get(url)
 
     array = response.parsed_response["route"]["legs"][0]["maneuvers"]
     time = DateTime.now.to_s(:time)
@@ -33,7 +33,7 @@ class Route < ApplicationRecord
 
     weather = setOfCoordinates.map {|x| HTTParty.get("https://api.openweathermap.org/data/2.5/onecall?lat=#{x["lat"]}&lon=#{x["lng"]}&units=imperial&exclude=minutely,hourly&appid=#{ENV.fetch("secret_key")}") }
 
-    weatherDirections = {routeWeather: weather, routeDirections: setOfDirections}
+    weatherDirections = {routeWeather: weather, routeDirections: setOfDirections, map: response2["url"]}
 
     weatherDirections
 

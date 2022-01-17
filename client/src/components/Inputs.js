@@ -18,15 +18,11 @@ class Inputs extends React.Component {
       map: ""
     };
 
-
-
     this.handleChangeOrigin = this.handleChangeOrigin.bind(this);
     this.handleChangeDest = this.handleChangeDest.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.returnToInput = this.returnToInput.bind(this);
-    // this.createMarkup = this.createMarkup.bind(this);
   }
-
 
   returnToInput(event) {
     this.setState({
@@ -48,6 +44,8 @@ class Inputs extends React.Component {
   handleSubmit(event) {
     let destinations = { origin: this.state.origin, dest: this.state.dest };
 
+    this.setState({ map: "" });
+
     axios
       .post("/destinations", {
         destinations
@@ -56,26 +54,11 @@ class Inputs extends React.Component {
         let data = response.data;
         this.setState({ route: data.routeDirections });
         this.setState({ weather: data.routeWeather });
-        // this.setState({ map: data.map });
+        this.setState({ map: data.map });
       });
-    // this.createMarkup()
     this.setState({ origin: "", dest: "", isActive: false });
     event.preventDefault();
   }
-
-  // createMarkup() {
-  //   let destinations = { origin: this.state.origin, dest: this.state.dest }
-  //   axios.post("/getMap", {
-  //     destinations
-  //   })
-  //   .then(response => {
-  //     let data = response;
-  //     console.log(data);
-  //     // this.setState({ map: data.map })
-  //   });
-  // }
-
-
 
   render() {
     if (this.state.isActive === true) {
@@ -115,7 +98,7 @@ class Inputs extends React.Component {
       ) {
         return (
           <div>
-            // <img src={this.createMarkup}/>
+             <img src={this.state.map}/>
             <WeatherRouteText
               weather={this.state.weather}
               route={this.state.route}

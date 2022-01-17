@@ -46,6 +46,7 @@ class WeatherRouteText extends Component {
       } else {
         conditions = {
           current_descrip: x["daily"][0]["weather"][0]["description"],
+          alerts: "N/A"
           icon: x["daily"][0]["weather"][0]["icon"]
         };
         descrip.push({
@@ -98,8 +99,8 @@ class WeatherRouteText extends Component {
               </li>
               <p>
                 <pre>
-                  Feels like low {this.getMinFeels(i)}, high{" "}
-                  {this.getMaxFeels(i)}, Wind speed{" "}
+                   <p className=>Low</p> {this.getMinFeels(i)}, <p className=>High</p>{" "}
+                  {this.getMaxFeels(i)}, <p className=>Wind speed</p>{" "}
                   {this.state.weather[i]["daily"][0]["wind_speed"]}
                 </pre>
               </p>

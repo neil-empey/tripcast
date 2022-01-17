@@ -64,7 +64,7 @@ class Inputs extends React.Component {
   }
 
   createMarkup() {
-    let pic = Buffer.from(this.state.map, "base64").toString()
+    let pic = this.state.map
     return pic
   }
 

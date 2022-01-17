@@ -4,6 +4,7 @@ class Route < ApplicationRecord
   require 'json'
   require 'net/http'
   require 'uri'
+  require 'base64'
   # validates :dt, :lat1, :long1, :lat2, :long2, presence: true
   validates :place1, :place2, presence: true
 
@@ -25,7 +26,7 @@ class Route < ApplicationRecord
     response = HTTParty.get(url)
     response3 = HTTParty.get(mapUrl)
 
-    puts response3.parsed_response
+    file = Base64.decode64(response3.parsed_response)
 
     # options = {
     #   body: mapUrl,
@@ -71,7 +72,7 @@ class Route < ApplicationRecord
 
     #response.parsed_response["current"]["temp"]
 
-    weatherDirections = {routeWeather: weather, routeDirections: setOfDirections, map: response3.parsed_response}
+    weatherDirections = {routeWeather: weather, routeDirections: setOfDirections, map: file}
 
     weatherDirections
 

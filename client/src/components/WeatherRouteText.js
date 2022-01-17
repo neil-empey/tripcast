@@ -35,17 +35,25 @@ class WeatherRouteText extends Component {
     let descrip = [];
 
     this.state.weather.map((x, i) => {
-      let conditions = {
-        current_descrip: x["daily"][0]["weather"][0]["description"],
-        alerts: x["alerts"][0]["event"],
-        icon: x["daily"][0]["weather"][0]["icon"]
-      };
-      x["alerts"] === undefined
-        ? descrip.push({
-            current_descrip: x["daily"][0]["weather"][0]["description"],
-            icon: x["daily"][0]["weather"][0]["icon"]
-          })
-        : descrip.push(conditions);
+      let conditions = {};
+      if (x["alerts"] !== undefined) {
+        conditions = {
+          current_descrip: x["daily"][0]["weather"][0]["description"],
+          alerts: x["alerts"][0]["event"],
+          icon: x["daily"][0]["weather"][0]["icon"]
+        };
+        descrip.push(conditions);
+      } else {
+        conditions = {
+          current_descrip: x["daily"][0]["weather"][0]["description"],
+          alerts: x["alerts"][0]["event"],
+          icon: x["daily"][0]["weather"][0]["icon"]
+        };
+        descrip.push({
+          current_descrip: x["daily"][0]["weather"][0]["description"],
+          icon: x["daily"][0]["weather"][0]["icon"]
+        });
+      }
     });
 
     return descrip;

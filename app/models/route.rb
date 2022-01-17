@@ -32,7 +32,7 @@ class Route < ApplicationRecord
     #   method: 'POST'
     # }
 
-    response2 = HTTParty.post("https://api.cloudinary.com/v1_1/#{ENV.fetch('cloud_name')}/#{mapUrl}/tripcast"
+    response2 = HTTParty.post("https://api.cloudinary.com/v1_1/#{ENV.fetch('cloud_name')}/#{mapUrl}/tripcast")
 
 # uri = URI.parse("https://api.cloudinary.com/v1_1/")
 # request = Net::HTTP::Post.new(uri)

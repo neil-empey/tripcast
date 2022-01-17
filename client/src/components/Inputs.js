@@ -58,22 +58,22 @@ class Inputs extends React.Component {
         this.setState({ weather: data.routeWeather });
         // this.setState({ map: data.map });
       });
-    this.createMarkup()
+    // this.createMarkup()
     this.setState({ origin: "", dest: "", isActive: false });
     event.preventDefault();
   }
 
-  createMarkup() {
-    let destinations = { origin: this.state.origin, dest: this.state.dest }
-    axios.post("/getMap", {
-      destinations
-    })
-    .then(response => {
-      let data = response;
-      console.log(data);
-      // this.setState({ map: data.map })
-    });
-  }
+  // createMarkup() {
+  //   let destinations = { origin: this.state.origin, dest: this.state.dest }
+  //   axios.post("/getMap", {
+  //     destinations
+  //   })
+  //   .then(response => {
+  //     let data = response;
+  //     console.log(data);
+  //     // this.setState({ map: data.map })
+  //   });
+  // }
 
 
 

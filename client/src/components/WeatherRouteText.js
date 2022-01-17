@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class WeatherRouteText extends Component {
   state = {
     weather: this.props.weather,
-    route: this.props.route,
+    route: this.props.route
   };
 
   getMinMax() {
@@ -35,14 +35,19 @@ class WeatherRouteText extends Component {
     let descrip = [];
 
     this.state.weather.map((x, i) => {
-      descrip.push(x["daily"][0]["weather"][0]["description"]);
+      let conditions = {
+        current_descrip: x["daily"][0]["weather"][0]["description"],
+        alerts: x["alerts"][0]["event"],
+        icon: x["daily"][0]["weather"][0]["icon"]
+      };
+      descrip.push(conditions);
     });
 
     return descrip;
   }
 
   render() {
-     console.log(this.state.weather);
+    console.log(this.state.weather);
     // console.log(this.state.route);
     return (
       <div className="row">
@@ -65,9 +70,12 @@ class WeatherRouteText extends Component {
           </h3>
           {this.getWeather().map((x, i) => (
             <span>
-              <h4 className="stage">Stage {i + 1}</h4>
+              <h5 className="stage">Stage {i + 1}</h5>
               <li className="no-bullets" key={i}>
-                {x}
+                <img src="http://openweathermap.org/img/wn/`${{x["icon"]}}`@2x.png" alt="weather icon"/>
+                <p>{x["current_descrip"]}</p>
+                <h5><u>Roads Hazards and Alerts</u></h5>
+                <p>{x["alerts"]}</p>
               </li>
               <p>
                 <pre>

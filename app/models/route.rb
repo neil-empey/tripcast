@@ -23,6 +23,9 @@ class Route < ApplicationRecord
     puts mapUrl
 
     response = HTTParty.get(url)
+    response3 = HTTParty.get(mapUrl)
+
+    puts response3
 
     # options = {
     #   body: mapUrl,

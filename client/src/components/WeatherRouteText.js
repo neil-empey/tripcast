@@ -40,8 +40,12 @@ class WeatherRouteText extends Component {
         alerts: x["alerts"][0]["event"],
         icon: x["daily"][0]["weather"][0]["icon"]
       };
-      descrip.push(conditions);
-      console.log(descrip);
+      x["alerts"] === undefined
+        ? descrip.push({
+            current_descrip: x["daily"][0]["weather"][0]["description"],
+            icon: x["daily"][0]["weather"][0]["icon"]
+          })
+        : descrip.push(conditions);
     });
 
     return descrip;

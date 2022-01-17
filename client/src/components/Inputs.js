@@ -64,7 +64,7 @@ class Inputs extends React.Component {
   }
 
   createMarkup() {
-    return {_html: this.state.map}
+    return this.state.map
   }
 
 
@@ -107,7 +107,7 @@ class Inputs extends React.Component {
       ) {
         return (
           <div>
-            <div dangerouslySetInnerHTML={this.createMarkup}></div>
+            <iframe src={this.createMarkup}/>
             <WeatherRouteText
               weather={this.state.weather}
               route={this.state.route}

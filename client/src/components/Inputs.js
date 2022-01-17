@@ -56,17 +56,23 @@ class Inputs extends React.Component {
         let data = response.data;
         this.setState({ route: data.routeDirections });
         this.setState({ weather: data.routeWeather });
-        console.log(data.map);
         // this.setState({ map: data.map });
       });
-
+    this.createMarkup()
     this.setState({ origin: "", dest: "", isActive: false });
     event.preventDefault();
   }
 
   createMarkup() {
-    let pic = this.state.map
-    return pic
+    let destinations = { origin: this.state.origin, dest: this.state.dest }
+    axios.post("/getMap", {
+      destinations
+    })
+    .then(response => {
+      let data = response.data;
+      console.log(data);
+      this.setState({ map: data.map })
+    });
   }
 
 
@@ -109,7 +115,7 @@ class Inputs extends React.Component {
       ) {
         return (
           <div>
-            <img src={this.createMarkup}/>
+            // <img src={this.createMarkup}/>
             <WeatherRouteText
               weather={this.state.weather}
               route={this.state.route}

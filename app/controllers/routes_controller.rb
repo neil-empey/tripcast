@@ -27,6 +27,17 @@ class RoutesController < ApplicationController
     end
   end
 
+  def getMap
+    place1 = params["destinations"]["origin"]
+    place2 = params["destinations"]["dest"]
+
+    mapUrl = "https://www.mapquestapi.com/staticmap/v5/map?start=#{place1}|flag-start&end=#{place2}|flag-end&size=@2x&key=#{ENV.fetch("consumer_key")}"
+
+    response = HTTParty.get(mapUrl)
+
+    render :text => response
+  end
+
 
   def destroy
     @route.destroy

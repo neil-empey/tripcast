@@ -75,7 +75,7 @@ class Route < ApplicationRecord
 
     #response.parsed_response["current"]["temp"]
 
-    weatherDirections = {routeWeather: weather, routeDirections: setOfDirections, map: info}
+    weatherDirections = {routeWeather: weather, routeDirections: setOfDirections}
 
     weatherDirections
 

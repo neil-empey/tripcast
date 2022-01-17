@@ -32,7 +32,9 @@ class Route < ApplicationRecord
     file = Tempfile.new("map", encoding: 'utf-8')
     open(uri) {|map| file.write(map.read.force_encoding("UTF-8"))}
 
-    puts file
+     file.open do |x|
+       puts x
+     end
 
 
     # options = {
@@ -73,7 +75,7 @@ class Route < ApplicationRecord
 
     setOfCoordinates = array.map.with_index {|x, i| x["startPoint"]}
 
-    
+
 
     weather = setOfCoordinates.map {|x| HTTParty.get("https://api.openweathermap.org/data/2.5/onecall?lat=#{x["lat"]}&lon=#{x["lng"]}&units=imperial&exclude=minutely,hourly&appid=#{ENV.fetch("secret_key")}") }
 

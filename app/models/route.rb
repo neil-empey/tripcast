@@ -5,6 +5,8 @@ class Route < ApplicationRecord
   require 'net/http'
   require 'uri'
   require 'base64'
+  require 'tempfile'
+  require 'open-uri'
   # validates :dt, :lat1, :long1, :lat2, :long2, presence: true
   validates :place1, :place2, presence: true
 
@@ -21,12 +23,17 @@ class Route < ApplicationRecord
 
     mapUrl = "https://www.mapquestapi.com/staticmap/v5/map?start=#{place1}|flag-start&end=#{place2}|flag-end&size=@2x&key=#{ENV.fetch("consumer_key")}"
 
-    puts mapUrl
+
 
     response = HTTParty.get(url)
     response3 = HTTParty.get(mapUrl)
 
-    file = Base64.decode64(response3.parsed_response)
+    uri = URI.parse("https://www.mapquestapi.com/staticmap/v5/map?start=#{place1}|flag-start&end=#{place2}|flag-end&size=@2x&key=#{ENV.fetch("consumer_key")}")
+    file = Tempfile.new("map", encoding: 'utf-8')
+    open(uri) {|map| file.write(map.read.force_encoding("UTF-8"))}
+
+    puts file
+
 
     # options = {
     #   body: mapUrl,
@@ -54,7 +61,7 @@ class Route < ApplicationRecord
 # response2 = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
 #   http.request(request)
 # end
-    puts response2
+
 
     array = response.parsed_response["route"]["legs"][0]["maneuvers"]
     time = DateTime.now.to_s(:time)
@@ -66,7 +73,7 @@ class Route < ApplicationRecord
 
     setOfCoordinates = array.map.with_index {|x, i| x["startPoint"]}
 
-    puts setOfCoordinates
+    
 
     weather = setOfCoordinates.map {|x| HTTParty.get("https://api.openweathermap.org/data/2.5/onecall?lat=#{x["lat"]}&lon=#{x["lng"]}&units=imperial&exclude=minutely,hourly&appid=#{ENV.fetch("secret_key")}") }
 

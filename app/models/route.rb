@@ -28,11 +28,7 @@ class Route < ApplicationRecord
     response = HTTParty.get(url)
     response3 = HTTParty.get(mapUrl)
 
-    uri = URI.parse("https://www.mapquestapi.com/staticmap/v5/map?start=#{place1}|flag-start&end=#{place2}|flag-end&size=@2x&key=#{ENV.fetch("consumer_key")}")
 
-    file = open(uri)
-
-    puts uri
 
 
     # options = {
@@ -79,7 +75,7 @@ class Route < ApplicationRecord
 
     #response.parsed_response["current"]["temp"]
 
-    weatherDirections = {routeWeather: weather, routeDirections: setOfDirections, map: file}
+    weatherDirections = {routeWeather: weather, routeDirections: setOfDirections, map: response3}
 
     weatherDirections
 

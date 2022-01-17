@@ -56,7 +56,8 @@ class Inputs extends React.Component {
         let data = response.data;
         this.setState({ route: data.routeDirections });
         this.setState({ weather: data.routeWeather });
-        this.setState({ map: data.map });
+        console.log(data.map);
+        // this.setState({ map: data.map });
       });
 
     this.setState({ origin: "", dest: "", isActive: false });

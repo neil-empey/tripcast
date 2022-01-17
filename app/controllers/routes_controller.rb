@@ -35,7 +35,7 @@ class RoutesController < ApplicationController
 
     response = HTTParty.get(mapUrl)
 
-    return response
+    render response
   end
 
 

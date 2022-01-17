@@ -24,6 +24,7 @@ class Inputs extends React.Component {
     this.handleChangeDest = this.handleChangeDest.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.returnToInput = this.returnToInput.bind(this);
+    this.createMarkup = this.createMarkup.bind(this);
   }
 
 
@@ -62,7 +63,7 @@ class Inputs extends React.Component {
     event.preventDefault();
   }
 
-  function createMarkup() {
+  createMarkup() {
     return {_html: this.state.map}
   }
 
@@ -106,7 +107,7 @@ class Inputs extends React.Component {
       ) {
         return (
           <div>
-            <div dangerouslySetInnerHTML={createMarkup()}></div>
+            <div dangerouslySetInnerHTML={this.createMarkup}></div>
             <WeatherRouteText
               weather={this.state.weather}
               route={this.state.route}

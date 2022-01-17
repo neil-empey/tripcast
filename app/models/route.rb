@@ -50,16 +50,7 @@ req_options = {
 response2 = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
   http.request(request)
 end
-
-
-# response.code
-# response.body
-
-
-
     puts response2
-
-    map = mapFile.parsed_response
 
     array = response.parsed_response["route"]["legs"][0]["maneuvers"]
     time = DateTime.now.to_s(:time)

@@ -35,7 +35,7 @@ class RoutesController < ApplicationController
 
     response = HTTParty.get(mapUrl)
 
-    render response
+    render :text => response.parsed_response
   end
 
 

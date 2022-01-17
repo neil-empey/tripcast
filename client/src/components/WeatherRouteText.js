@@ -41,6 +41,7 @@ class WeatherRouteText extends Component {
         icon: x["daily"][0]["weather"][0]["icon"]
       };
       descrip.push(conditions);
+      console.log(descrip);
     });
 
     return descrip;

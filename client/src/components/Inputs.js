@@ -102,7 +102,7 @@ class Inputs extends React.Component {
       ) {
         return (
           <div>
-            {this.state.map}
+            <div dangerouslySetInnerHTML={this.state.map}></div>
             <WeatherRouteText
               weather={this.state.weather}
               route={this.state.route}

@@ -57,6 +57,7 @@ class WeatherRouteText extends Component {
       }
     });
     console.log(descrip);
+    console.log(this.state.conditions);
 
     this.setState({ conditions: descrip });
   }

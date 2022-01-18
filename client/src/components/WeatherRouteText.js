@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 
 class WeatherRouteText extends Component {
-  state = {
-    weather: this.props.weather,
-    route: this.props.route,
-    conditions: []
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      weather: this.props.weather,
+      route: this.props.route,
+      conditions: []
+    };
+
+    this.getWeather = this.getWeather.bind(this);
+  }
 
   getMinMax() {
     let max = [];
@@ -56,10 +61,12 @@ class WeatherRouteText extends Component {
         });
       }
     });
-    console.log(descrip);
+
     console.log(this.state.conditions);
 
     this.setState({ conditions: descrip });
+
+    console.log(this.state.conditions);
   }
 
   render() {

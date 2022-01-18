@@ -6,7 +6,7 @@ class WeatherRouteText extends Component {
     this.state = {
       weather: this.props.weather,
       route: this.props.route,
-      conditions: []
+      conditions: ""
     };
 
     this.getWeather = this.getWeather.bind(this);

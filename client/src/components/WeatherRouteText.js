@@ -40,18 +40,13 @@ class WeatherRouteText extends Component {
       <div className="row">
         <div className="column">
           <h3 className="title">
-            <u>Directions</u>
+            <u>Directions and Weather at every stage</u>
           </h3>
           <ul className="no-bullets">
             {this.state.route.map((x, i) => (
               <>
                 <h4 className="stage">Stage {i + 1}</h4>
                 <li key={i}>{x}</li>
-                <h3 className="title">
-                  <u>
-                    Plan on the following weather conditions during your trip.
-                  </u>
-                </h3>
                 <span>
                   <li className="no-bullets" key={i}>
                     <img
@@ -75,15 +70,15 @@ class WeatherRouteText extends Component {
                       <u>Roads Hazards and Alerts</u>
                     </h5>
                     {this.state.weather[i]["alerts"] !== undefined ? (
-                      <p>this.state.weather[i]["alerts"][0]["event"]}</p>
+                      <p>{this.state.weather[i]["alerts"][0]["event"]}</p>
                     ) : (
                       <p>n/a</p>
                     )}
                   </li>
                   <p>
                     <pre>
-                      <p className="low">Low</p> {this.getMinFeels(i)},{" "}
-                      <p className="low">High</p> {this.getMaxFeels(i)},{" "}
+                      <p className="low">Low</p> {this.getMinFeels(i)}{" "}
+                      <p className="low">High</p> {this.getMaxFeels(i)}{" "}
                       <p className="low">Wind speed</p>{" "}
                       {this.state.weather[i]["daily"][0]["wind_speed"]}
                     </pre>

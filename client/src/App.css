@@ -36,16 +36,15 @@ li.no-bullets {
 
 .gif {
   float: left;
-    width: 75%;
+    width: 100%;
     padding-left: 20px;
 }
 
 .frame {
-  margin: 0 auto;
-  padding-left: 0%;
+  padding-left: 20px;
   display: block;
   margin: auto;
-  width: 50%;
+  width: 100%;
   height: 60%;
   position: relative;
 }

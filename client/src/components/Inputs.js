@@ -62,10 +62,10 @@ class Inputs extends React.Component {
     event.preventDefault();
   }
 
-  const getWeather = () => {
+  function getWeather() {
     let descrip = [];
 
-    this.state.weather.map((x, i) => {
+    this.state.weather.map((x) => {
       let conditions = {};
       if (x["alerts"] !== undefined) {
         conditions = {
@@ -85,9 +85,8 @@ class Inputs extends React.Component {
           icon: x["daily"][0]["weather"][0]["icon"]
         });
       }
-    });
-
-    console.log(this.state.conditions);
+    ));
+    console.log(descrip);
     return descrip;
   }
 
@@ -133,7 +132,7 @@ class Inputs extends React.Component {
             <WeatherRouteText
               weather={this.state.weather}
               route={this.state.route}
-              conditions={getWeather}
+              conditions={getWeather()}
             />
             <Button function={this.returnToInput} text={"New Search"} />
           </div>

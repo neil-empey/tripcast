@@ -23,6 +23,7 @@ class Inputs extends React.Component {
     this.handleChangeDest = this.handleChangeDest.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.returnToInput = this.returnToInput.bind(this);
+    this.getWeather = this.getWeather.bind(this)
   }
 
   returnToInput(event) {
@@ -35,6 +36,24 @@ class Inputs extends React.Component {
       map: "",
       conditions: []
     });
+  }
+
+  getWeather() {
+    let descrip = [];
+    this.state.weather.map((x) => {
+      if (x["alerts"] !== undefined) {
+        descrip.push({current_descrip: x["daily"][0]["weather"][0]["description"],
+          alerts: x["alerts"][0]["event"],
+          icon: x["daily"][0]["weather"][0]["icon"]
+        })
+      }else{
+        descrip.push({current_descrip: x["daily"][0]["weather"][0]["description"],
+        alerts: "N/A",
+        icon: x["daily"][0]["weather"][0]["icon"]
+      })
+      }
+    }
+    this.setState({ conditions: descrip })
   }
 
   handleChangeOrigin(event) {
@@ -58,39 +77,10 @@ class Inputs extends React.Component {
         this.setState({ weather: data.routeWeather });
         this.setState({ map: data.map });
       });
+      this.getWeather
     this.setState({ origin: "", dest: "", isActive: false });
     event.preventDefault();
   }
-}
-
-  function Weather() {
-    let descrip = [];
-
-    this.state.weather.map((x) => {
-      let conditions = {};
-      if (x["alerts"] !== undefined) {
-        conditions = {
-          current_descrip: x["daily"][0]["weather"][0]["description"],
-          alerts: x["alerts"][0]["event"],
-          icon: x["daily"][0]["weather"][0]["icon"]
-        };
-        descrip.push(conditions);
-      } else {
-        conditions = {
-          current_descrip: x["daily"][0]["weather"][0]["description"],
-          alerts: "N/A",
-          icon: x["daily"][0]["weather"][0]["icon"]
-        };
-        descrip.push({
-          current_descrip: x["daily"][0]["weather"][0]["description"],
-          icon: x["daily"][0]["weather"][0]["icon"]
-        });
-      }
-      console.log(descrip);
-      return descrip;
-    });
-  }
-
 
   render() {
     if (this.state.isActive === true) {
@@ -121,6 +111,7 @@ class Inputs extends React.Component {
           <h4>Enter origin and destination points as shown.</h4>
         </div>
       );
+    }
 
     if (this.state.isActive !== true) {
       if (
@@ -133,7 +124,7 @@ class Inputs extends React.Component {
             <WeatherRouteText
               weather={this.state.weather}
               route={this.state.route}
-              conditions={getWeather()}
+              conditions={this.state.conditions}
             />
             <Button function={this.returnToInput} text={"New Search"} />
           </div>
@@ -144,6 +135,5 @@ class Inputs extends React.Component {
     }
   }
 }
-
 
 export default Inputs;

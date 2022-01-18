@@ -6,7 +6,7 @@ import React, { useState } from "react";
 function App() {
   return (
     <div>
-      <div className="App">
+      <div className="app">
         <h1 className="trip">TripCast</h1>
         <h2>Directions and Weather</h2>
         <Inputs />

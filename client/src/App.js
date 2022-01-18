@@ -7,13 +7,13 @@ function App() {
   return (
     <div>
       <div className="app">
-        <h1 className="trip">TripCast</h1>
-        <h2>Directions and Weather</h2>
+        <h1 className="headline">TripCast</h1>
+        <h2 className="subhead">Directions and Weather</h2>
         <Inputs />
       </div>
       <div className="gif">
         <iframe
-          className="frame"
+          id="author-avatar"
           src="https://giphy.com/embed/LBgf56psa07tCUJmpC"
         ></iframe>
       </div>

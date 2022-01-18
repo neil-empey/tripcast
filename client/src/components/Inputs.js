@@ -64,30 +64,32 @@ class Inputs extends React.Component {
   render() {
     if (this.state.isActive === true) {
       return (
-        <div>
-          <form onSubmit={this.handleSubmit}>
-            {" "}
-            <label>
-              Origin:
-              <input
-                type="text"
-                placeholder="15 Elmwood, Clinton, CT"
-                value={this.state.origin}
-                onChange={this.handleChangeOrigin}
-              />{" "}
-            </label>
-            <label>
-              Destination:
-              <input
-                type="text"
-                placeholder="100 Main St, New York, NY"
-                value={this.state.dest}
-                onChange={this.handleChangeDest}
-              />{" "}
-            </label>
-            <input type="submit" value="Submit" />
-          </form>
-          <h4>Enter origin and destination points as shown.</h4>
+        <div className="section">
+          <div className="container flex_div">
+            <form onSubmit={this.handleSubmit}>
+              {" "}
+              <label>
+                Origin:
+                <input
+                  type="text"
+                  placeholder="15 Elmwood, Clinton, CT"
+                  value={this.state.origin}
+                  onChange={this.handleChangeOrigin}
+                />{" "}
+              </label>
+              <label>
+                Destination:
+                <input
+                  type="text"
+                  placeholder="100 Main St, New York, NY"
+                  value={this.state.dest}
+                  onChange={this.handleChangeDest}
+                />{" "}
+              </label>
+              <input type="submit" value="Submit" />
+            </form>
+            <h4>Enter origin and destination points as shown.</h4>
+          </div>
         </div>
       );
     }

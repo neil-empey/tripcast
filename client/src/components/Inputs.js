@@ -15,7 +15,8 @@ class Inputs extends React.Component {
       isActive: true,
       route: ["processing"],
       weather: ["processing"],
-      map: ""
+      map: "",
+      conditions: []
     };
 
     this.handleChangeOrigin = this.handleChangeOrigin.bind(this);
@@ -31,7 +32,8 @@ class Inputs extends React.Component {
       isActive: true,
       route: ["processing"],
       weather: ["processing"],
-      map: ""
+      map: "",
+      conditions: []
     });
   }
 
@@ -56,6 +58,36 @@ class Inputs extends React.Component {
         this.setState({ weather: data.routeWeather });
         this.setState({ map: data.map });
       });
+    let descrip = [];
+
+    this.state.weather.map((x, i) => {
+      let conditions = {};
+      if (x["alerts"] !== undefined) {
+        conditions = {
+          current_descrip: x["daily"][0]["weather"][0]["description"],
+          alerts: x["alerts"][0]["event"],
+          icon: x["daily"][0]["weather"][0]["icon"]
+        };
+        descrip.push(conditions);
+      } else {
+        conditions = {
+          current_descrip: x["daily"][0]["weather"][0]["description"],
+          alerts: "N/A",
+          icon: x["daily"][0]["weather"][0]["icon"]
+        };
+        descrip.push({
+          current_descrip: x["daily"][0]["weather"][0]["description"],
+          icon: x["daily"][0]["weather"][0]["icon"]
+        });
+      }
+    });
+
+    console.log(this.state.conditions);
+
+    this.setState({ conditions: descrip });
+
+    console.log(this.state.conditions);
+
     this.setState({ origin: "", dest: "", isActive: false });
     event.preventDefault();
   }
@@ -98,10 +130,11 @@ class Inputs extends React.Component {
       ) {
         return (
           <div>
-             <img src={this.state.map}/>
+            <img src={this.state.map} />
             <WeatherRouteText
               weather={this.state.weather}
               route={this.state.route}
+              conditions={this.state.conditions}
             />
             <Button function={this.returnToInput} text={"New Search"} />
           </div>

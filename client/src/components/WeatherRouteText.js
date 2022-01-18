@@ -6,11 +6,8 @@ class WeatherRouteText extends Component {
     this.state = {
       weather: this.props.weather,
       route: this.props.route,
-      conditions: ""
+      conditions: this.props.conditions
     };
-
-    this.getWeather = this.getWeather.bind(this);
-    this.getWeather();
   }
 
   getMinMax() {
@@ -36,38 +33,6 @@ class WeatherRouteText extends Component {
 
   getMaxFeels(x) {
     return this.state.weather[x]["daily"][0]["feels_like"]["day"];
-  }
-
-  getWeather() {
-    let descrip = [];
-
-    this.state.weather.map((x, i) => {
-      let conditions = {};
-      if (x["alerts"] !== undefined) {
-        conditions = {
-          current_descrip: x["daily"][0]["weather"][0]["description"],
-          alerts: x["alerts"][0]["event"],
-          icon: x["daily"][0]["weather"][0]["icon"]
-        };
-        descrip.push(conditions);
-      } else {
-        conditions = {
-          current_descrip: x["daily"][0]["weather"][0]["description"],
-          alerts: "N/A",
-          icon: x["daily"][0]["weather"][0]["icon"]
-        };
-        descrip.push({
-          current_descrip: x["daily"][0]["weather"][0]["description"],
-          icon: x["daily"][0]["weather"][0]["icon"]
-        });
-      }
-    });
-
-    console.log(this.state.conditions);
-
-    this.setState({ conditions: descrip });
-
-    console.log(this.state.conditions);
   }
 
   render() {

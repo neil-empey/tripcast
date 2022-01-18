@@ -35,7 +35,6 @@ li.no-bullets {
 }
 
 .gif {
-  align: center;
   display: block;
   width:74%;
   height:74%;
@@ -72,10 +71,8 @@ ol.gradient-list {
   list-style: none;
   margin: 1.75rem 0;
   padding-left: 1rem;
-  > li {
     background: #83e4e2;
     border-radius: 0 0.5rem 0.5rem 0.5rem;
-    @extend %boxshadow;
     counter-increment: gradient-counter;
     margin-top: 1rem;
     min-height: 3rem;
@@ -83,7 +80,6 @@ ol.gradient-list {
     position: relative;
   }
 
-}
 .trip {
   font-family: 'Sonsie One', cursive;
 }
@@ -103,8 +99,6 @@ ol.gradient-list {
   display: table;
   clear: both;
 }
-
-.zig-zag { border: none; width: 33%; margin: auto; margin-top: 1%; margin-bottom: 1%; height: 3px; background: linear-gradient(135deg, #ECEDDC 25%, transparent 25%) -2px 0, linear-gradient(225deg, #ECEDDC 25%, transparent 25%) -2px 0, linear-gradient(315deg, #ECEDDC 25%, transparent 25%), linear-gradient(45deg, #ECEDDC 25%, transparent 25%); background-size: 4px 4px; background-color: #EC173A;}
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: lightBlue;

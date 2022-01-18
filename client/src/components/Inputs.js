@@ -61,8 +61,9 @@ class Inputs extends React.Component {
     this.setState({ origin: "", dest: "", isActive: false });
     event.preventDefault();
   }
+}
 
-  function getWeather() {
+  function Weather() {
     let descrip = [];
 
     this.state.weather.map((x) => {
@@ -85,10 +86,11 @@ class Inputs extends React.Component {
           icon: x["daily"][0]["weather"][0]["icon"]
         });
       }
-    ));
-    console.log(descrip);
-    return descrip;
+      console.log(descrip);
+      return descrip;
+    });
   }
+
 
   render() {
     if (this.state.isActive === true) {
@@ -119,7 +121,6 @@ class Inputs extends React.Component {
           <h4>Enter origin and destination points as shown.</h4>
         </div>
       );
-    }
 
     if (this.state.isActive !== true) {
       if (
@@ -143,5 +144,6 @@ class Inputs extends React.Component {
     }
   }
 }
+
 
 export default Inputs;

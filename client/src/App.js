@@ -8,18 +8,14 @@ function App() {
     <div>
       <div className="App">
         <h1 className="trip">TripCast</h1>
-        <h2>Get Directions and Weather for points along your route</h2>
+        <h2>Directions and Weather</h2>
         <Inputs />
-
-        <div className="gif">
-          <iframe
-            className="frame"
-            src="https://giphy.com/embed/LBgf56psa07tCUJmpC"
-          ></iframe>
-        </div>
       </div>
-      <div>
-        <div></div>
+      <div className="gif">
+        <iframe
+          className="frame"
+          src="https://giphy.com/embed/LBgf56psa07tCUJmpC"
+        ></iframe>
       </div>
     </div>
   );

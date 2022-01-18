@@ -58,11 +58,12 @@ li.no-bullets {
 }
 
 .title {
-  color: SlateBlue;
+  color: #a12df4;
 }
 
 .low {
-  color: red;
+  color: black;
+  font-size: 3vw;
 }
 
 

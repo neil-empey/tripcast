@@ -46,7 +46,9 @@ class WeatherRouteText extends Component {
             {this.state.route.map((x, i) => (
               <>
                 <h4 className="stage">Stage {i + 1}</h4>
-                <li key={i}>{x}</li>
+                <li className="stage" key={i}>
+                  {x}
+                </li>
                 <span>
                   <li className="no-bullets" key={i}>
                     <img
@@ -66,9 +68,9 @@ class WeatherRouteText extends Component {
                         ]
                       }
                     </p>
-                    <h5>
+                    <h6>
                       <u>Roads Hazards and Alerts</u>
-                    </h5>
+                    </h6>
                     {this.state.weather[i]["alerts"] !== undefined ? (
                       <p>{this.state.weather[i]["alerts"][0]["event"]}</p>
                     ) : (

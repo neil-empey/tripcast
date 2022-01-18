@@ -10,6 +10,7 @@ class WeatherRouteText extends Component {
     };
 
     this.getWeather = this.getWeather.bind(this);
+    this.getWeather();
   }
 
   getMinMax() {
@@ -70,7 +71,6 @@ class WeatherRouteText extends Component {
   }
 
   render() {
-    this.getWeather();
     // console.log(this.state.weather);
     // console.log(this.state.route);
     return (

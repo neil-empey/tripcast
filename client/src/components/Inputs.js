@@ -23,6 +23,7 @@ class Inputs extends React.Component {
     this.handleChangeDest = this.handleChangeDest.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.returnToInput = this.returnToInput.bind(this);
+    this.getWeather = this.getWeather.bind(this);
   }
 
   returnToInput(event) {
@@ -58,6 +59,12 @@ class Inputs extends React.Component {
         this.setState({ weather: data.routeWeather });
         this.setState({ map: data.map });
       });
+    this.getWeather();
+    this.setState({ origin: "", dest: "", isActive: false });
+    event.preventDefault();
+  }
+
+  getWeather() {
     let descrip = [];
 
     this.state.weather.map((x, i) => {
@@ -87,9 +94,6 @@ class Inputs extends React.Component {
     this.setState({ conditions: descrip });
 
     console.log(this.state.conditions);
-
-    this.setState({ origin: "", dest: "", isActive: false });
-    event.preventDefault();
   }
 
   render() {

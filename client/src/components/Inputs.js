@@ -4,6 +4,7 @@ import WeatherRouteText from "./WeatherRouteText";
 import Button from "./Button";
 import axios from "axios";
 import "../App.css";
+
 const { createProxyMiddleware } = require("http-proxy-middleware");
 
 class Inputs extends React.Component {
@@ -15,15 +16,13 @@ class Inputs extends React.Component {
       isActive: true,
       route: ["processing"],
       weather: ["processing"],
-      map: "",
-      conditions: []
+      map: ""
     };
 
     this.handleChangeOrigin = this.handleChangeOrigin.bind(this);
     this.handleChangeDest = this.handleChangeDest.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.returnToInput = this.returnToInput.bind(this);
-    this.getWeather = this.getWeather.bind(this)
   }
 
   returnToInput(event) {
@@ -33,27 +32,8 @@ class Inputs extends React.Component {
       isActive: true,
       route: ["processing"],
       weather: ["processing"],
-      map: "",
-      conditions: []
+      map: ""
     });
-  }
-
-  getWeather() {
-    let descrip = [];
-    this.state.weather.map((x) => {
-      if (x["alerts"] !== undefined) {
-        descrip.push({current_descrip: x["daily"][0]["weather"][0]["description"],
-          alerts: x["alerts"][0]["event"],
-          icon: x["daily"][0]["weather"][0]["icon"]
-        })
-      }else{
-        descrip.push({current_descrip: x["daily"][0]["weather"][0]["description"],
-        alerts: "N/A",
-        icon: x["daily"][0]["weather"][0]["icon"]
-      })
-      }
-    }
-    this.setState({ conditions: descrip })
   }
 
   handleChangeOrigin(event) {
@@ -77,7 +57,6 @@ class Inputs extends React.Component {
         this.setState({ weather: data.routeWeather });
         this.setState({ map: data.map });
       });
-      this.getWeather
     this.setState({ origin: "", dest: "", isActive: false });
     event.preventDefault();
   }
@@ -124,7 +103,6 @@ class Inputs extends React.Component {
             <WeatherRouteText
               weather={this.state.weather}
               route={this.state.route}
-              conditions={this.state.conditions}
             />
             <Button function={this.returnToInput} text={"New Search"} />
           </div>

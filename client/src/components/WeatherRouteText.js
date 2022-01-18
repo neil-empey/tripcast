@@ -5,8 +5,7 @@ class WeatherRouteText extends Component {
     super(props);
     this.state = {
       weather: this.props.weather,
-      route: this.props.route,
-      conditions: this.props.conditions
+      route: this.props.route
     };
   }
 
@@ -36,7 +35,6 @@ class WeatherRouteText extends Component {
   }
 
   render() {
-    console.log(this.state.conditions);
     // console.log(this.state.route);
     return (
       <div className="row">
@@ -59,16 +57,24 @@ class WeatherRouteText extends Component {
                     <img
                       src={
                         "http://openweathermap.org/img/wn/" +
-                        this.state.conditions[i]["icon"] +
+                        this.state.weather[i]["daily"][0]["weather"][0][
+                          "icon"
+                        ] +
                         "@2x.png"
                       }
                       alt="weather icon"
                     />
-                    <p>{this.state.conditions[i]["current_descrip"]}</p>
+                    <p>
+                      {
+                        this.state.weather[i]["daily"][0]["weather"][0][
+                          "description"
+                        ]
+                      }
+                    </p>
                     <h5>
                       <u>Roads Hazards and Alerts</u>
                     </h5>
-                    <p>{this.state.conditions[i]["alerts"]}</p>
+                    <p>{this.state.weather[i]["alerts"][0]["event"]}</p>
                   </li>
                   <p>
                     <pre>

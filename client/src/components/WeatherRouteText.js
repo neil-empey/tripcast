@@ -46,7 +46,7 @@ class WeatherRouteText extends Component {
       } else {
         conditions = {
           current_descrip: x["daily"][0]["weather"][0]["description"],
-          alerts: "N/A"
+          alerts: "N/A",
           icon: x["daily"][0]["weather"][0]["icon"]
         };
         descrip.push({
@@ -73,40 +73,41 @@ class WeatherRouteText extends Component {
               <>
                 <h4 className="stage">Stage {i + 1}</h4>
                 <li key={i}>{x}</li>
+                <h3 className="title">
+                  <u>
+                    Plan on the following weather conditions during your trip.
+                  </u>
+                </h3>
+                <span>
+                  <li className="no-bullets" key={i}>
+                    <img
+                      src={
+                        "http://openweathermap.org/img/wn/" +
+                        this.getWeather[i]["icon"] +
+                        "@2x.png"
+                      }
+                      alt="weather icon"
+                    />
+                    <p>{this.getWeather[i]["current_descrip"]}</p>
+                    <h5>
+                      <u>Roads Hazards and Alerts</u>
+                    </h5>
+                    <p>{this.getWeather[i]["alerts"]}</p>
+                  </li>
+                  <p>
+                    <pre>
+                      <p className="low">Low</p> {this.getMinFeels(i)},{" "}
+                      <p className="low">High</p> {this.getMaxFeels(i)},{" "}
+                      <p className="low">Wind speed</p>{" "}
+                      {this.state.weather[i]["daily"][0]["wind_speed"]}
+                    </pre>
+                  </p>
+                </span>
               </>
             ))}
           </ul>
         </div>
         <div className="column">
-          <h3 className="title">
-            <u>Plan on the following weather conditions during your trip.</u>
-          </h3>
-          {this.getWeather().map((x, i) => (
-            <span>
-              <h5 className="stage">Stage {i + 1}</h5>
-              <li className="no-bullets" key={i}>
-                <img
-                  src={
-                    "http://openweathermap.org/img/wn/" + x["icon"] + "@2x.png"
-                  }
-                  alt="weather icon"
-                />
-                <p>{x["current_descrip"]}</p>
-                <h5>
-                  <u>Roads Hazards and Alerts</u>
-                </h5>
-                <p>{x["alerts"]}</p>
-              </li>
-              <p>
-                <pre>
-                   <p className=>Low</p> {this.getMinFeels(i)}, <p className=>High</p>{" "}
-                  {this.getMaxFeels(i)}, <p className=>Wind speed</p>{" "}
-                  {this.state.weather[i]["daily"][0]["wind_speed"]}
-                </pre>
-              </p>
-            </span>
-          ))}
-
           <br></br>
           <h4>
             Expect an actual minimum temperature of {this.getMinMax()[0]} and

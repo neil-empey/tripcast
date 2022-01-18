@@ -89,10 +89,7 @@ class Inputs extends React.Component {
     });
 
     console.log(this.state.conditions);
-
-    this.setState({ conditions: descrip });
-
-    console.log(this.state.conditions);
+    return descrip;
   }
 
   render() {
@@ -131,14 +128,13 @@ class Inputs extends React.Component {
         this.state.route[0] !== "processing" &&
         this.state.weather[0] !== "processing"
       ) {
-        this.getWeather();
         return (
           <div>
             <img src={this.state.map} />
             <WeatherRouteText
               weather={this.state.weather}
               route={this.state.route}
-              conditions={this.state.conditions}
+              conditions={this.getWeather}
             />
             <Button function={this.returnToInput} text={"New Search"} />
           </div>

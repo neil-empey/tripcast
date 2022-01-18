@@ -23,7 +23,6 @@ class Inputs extends React.Component {
     this.handleChangeDest = this.handleChangeDest.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.returnToInput = this.returnToInput.bind(this);
-    this.getWeather = this.getWeather.bind(this);
   }
 
   returnToInput(event) {
@@ -63,7 +62,7 @@ class Inputs extends React.Component {
     event.preventDefault();
   }
 
-  getWeather() {
+  const getWeather = () => {
     let descrip = [];
 
     this.state.weather.map((x, i) => {
@@ -134,7 +133,7 @@ class Inputs extends React.Component {
             <WeatherRouteText
               weather={this.state.weather}
               route={this.state.route}
-              conditions={this.getWeather}
+              conditions={getWeather}
             />
             <Button function={this.returnToInput} text={"New Search"} />
           </div>

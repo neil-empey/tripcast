@@ -11,7 +11,7 @@ body {
   text-align: center;
   margin: 0;
   padding: 0;
-  background-color: #83e4e2;
+  background-color: #E96310;
   font-family: 'Raleway', sans-serif;
 }
 
@@ -48,7 +48,7 @@ li.no-bullets {
   position: relative;
 }
 .stage {
-  color: black;
+  color: #1B3955;
 }
 
 .title {
@@ -56,8 +56,8 @@ li.no-bullets {
 }
 
 .low {
-  color: black;
-  font-size: 1.5 vw;
+  color: #1B3955;
+  font-size: 1 vw;
 }
 
 
@@ -80,7 +80,7 @@ ol.gradient-list {
 }
 
 .step {
-  color: black;
+  color: #203763;
 }
 
 .column {
@@ -92,7 +92,7 @@ ol.gradient-list {
   padding: 30px;
   font-size: 40px;
   text-align: center;
-  background: white;
+  background: #7FD1AE
 }
 
 /* Clear floats after the columns */
@@ -103,7 +103,7 @@ ol.gradient-list {
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: lightBlue;
+  color: #206777;
   opacity: 1; /* Firefox */
 }
 
@@ -114,3 +114,36 @@ ol.gradient-list {
 ::-ms-input-placeholder { /* Microsoft Edge */
   color: red;
 }
+
+--magenta:						#BC2767;
+--meadow:							#7A9A3E;
+
+
+--midnight:						#1B3955;
+
+--moss:								#83A944;
+
+--navy:								#363A57;
+--ocean:							#206777;
+
+--orange:							#FD8A04;
+--orchid:							#7945BF;
+--pond-bottom:				#264A46;
+--purple:							#A95AF3;
+--purple-slate:				#545375;
+--rainforest:					#25422E;
+--raspberry-jam:			#3C0D2B;
+
+--royal:							#4169E1;
+--ruby:								#D1314B;
+--squash:							#E96310;
+--sea-foam:						#5D998B;
+--sea-fog:						#758C92;
+--slate:							#7184A5;
+--spice:							#B54E16;
+--spring:							#5ACB65;
+--teal:          			#29879C;
+--terracotta:    			#B76A61;
+--twilight:						#203763;
+--vavavoom:						#BF0D0D;
+--walnut:      				#381F19;

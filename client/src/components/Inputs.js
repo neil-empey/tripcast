@@ -59,7 +59,6 @@ class Inputs extends React.Component {
         this.setState({ weather: data.routeWeather });
         this.setState({ map: data.map });
       });
-    this.getWeather();
     this.setState({ origin: "", dest: "", isActive: false });
     event.preventDefault();
   }
@@ -132,6 +131,7 @@ class Inputs extends React.Component {
         this.state.route[0] !== "processing" &&
         this.state.weather[0] !== "processing"
       ) {
+        this.getWeather();
         return (
           <div>
             <img src={this.state.map} />

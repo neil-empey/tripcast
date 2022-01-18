@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class WeatherRouteText extends Component {
   state = {
     weather: this.props.weather,
-    route: this.props.route
+    route: this.props.route,
     conditions: []
   };
 
@@ -57,7 +57,7 @@ class WeatherRouteText extends Component {
       }
     });
 
-    this.setState({conditions: descrip});
+    this.setState({ conditions: descrip });
   }
 
   render() {

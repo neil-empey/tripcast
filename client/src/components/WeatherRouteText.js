@@ -4,6 +4,7 @@ class WeatherRouteText extends Component {
   state = {
     weather: this.props.weather,
     route: this.props.route
+    conditions: []
   };
 
   getMinMax() {
@@ -56,7 +57,7 @@ class WeatherRouteText extends Component {
       }
     });
 
-    return descrip;
+    this.setState({conditions: descrip});
   }
 
   render() {
@@ -83,16 +84,16 @@ class WeatherRouteText extends Component {
                     <img
                       src={
                         "http://openweathermap.org/img/wn/" +
-                        this.getWeather[i]["icon"] +
+                        this.state.conditions[i]["icon"] +
                         "@2x.png"
                       }
                       alt="weather icon"
                     />
-                    <p>{this.getWeather[i]["current_descrip"]}</p>
+                    <p>{this.state.conditions[i]["current_descrip"]}</p>
                     <h5>
                       <u>Roads Hazards and Alerts</u>
                     </h5>
-                    <p>{this.getWeather[i]["alerts"]}</p>
+                    <p>{this.state.conditions[i]["alerts"]}</p>
                   </li>
                   <p>
                     <pre>

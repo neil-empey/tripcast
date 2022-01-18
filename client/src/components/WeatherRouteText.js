@@ -74,7 +74,11 @@ class WeatherRouteText extends Component {
                     <h5>
                       <u>Roads Hazards and Alerts</u>
                     </h5>
-                    <p>{this.state.weather[i]["alerts"][0]["event"]}</p>
+                    {this.state.weather[i]["alerts"] !== undefined ? (
+                      <p>this.state.weather[i]["alerts"][0]["event"]}</p>
+                    ) : (
+                      <p>n/a</p>
+                    )}
                   </li>
                   <p>
                     <pre>

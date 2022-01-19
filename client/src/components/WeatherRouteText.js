@@ -44,7 +44,7 @@ class WeatherRouteText extends Component {
           </h5>
           <ul className="no-bullets">
             {this.state.route.map((x, i) => (
-              <>
+              <div className="container">
                 <p className="stage">Stage {i + 1}</p>
                 <li className="stage" key={i}>
                   {x}
@@ -88,7 +88,7 @@ class WeatherRouteText extends Component {
                     </p>
                   </pre>
                 </p>
-              </>
+              </div>
             ))}
           </ul>
         </div>

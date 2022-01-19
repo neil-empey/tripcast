@@ -88,9 +88,9 @@ class Inputs extends React.Component {
                   onChange={this.handleChangeDest}
                 />{" "}
               </label>
-              <input className="form_button" type="submit" value="Submit" />
+              <button className="form_button" type="submit" value="Submit" />
             </form>
-            <h4>Enter origin and destination points as shown.</h4>
+            <p></p>
           </div>
         </div>
       );

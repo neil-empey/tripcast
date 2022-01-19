@@ -37,7 +37,7 @@ class WeatherRouteText extends Component {
   render() {
     // console.log(this.state.route);
     return (
-      <div className="split-pane col-xs-12 col-sm-6 uiux-side">
+      <div className="">
         <div className="text-content">
           <h4 className="big">
             <u>Directions and Weather at every stage</u>
@@ -45,22 +45,27 @@ class WeatherRouteText extends Component {
           <ul className="no-bullets">
             {this.state.route.map((x, i) => (
               <>
-                <h4 className="stage">Stage {i + 1}</h4>
-                <li className="stage" key={i}>
-                  {x}
-                </li>
-                <span>
+                <section>
+                  <h4 className="stage">Stage {i + 1}</h4>
+                  <li className="stage" key={i}>
+                    {x}
+                  </li>
+                </section>
+
+                <section>
                   <li className="no-bullets" key={i}>
-                    <img
-                      src={
-                        "http://openweathermap.org/img/wn/" +
-                        this.state.weather[i]["daily"][0]["weather"][0][
-                          "icon"
-                        ] +
-                        "@2x.png"
-                      }
-                      alt="weather icon"
-                    />
+                    <figure>
+                      <img
+                        src={
+                          "http://openweathermap.org/img/wn/" +
+                          this.state.weather[i]["daily"][0]["weather"][0][
+                            "icon"
+                          ] +
+                          "@2x.png"
+                        }
+                        alt="weather icon"
+                      />
+                    </figure>
                     <p>
                       {
                         this.state.weather[i]["daily"][0]["weather"][0][
@@ -77,6 +82,8 @@ class WeatherRouteText extends Component {
                       <p>n/a</p>
                     )}
                   </li>
+                </section>
+                <section>
                   <p>
                     <pre>
                       <p className="low">
@@ -86,7 +93,7 @@ class WeatherRouteText extends Component {
                       </p>
                     </pre>
                   </p>
-                </span>
+                </section>
               </>
             ))}
           </ul>

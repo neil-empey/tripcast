@@ -6,8 +6,8 @@ import React, { useState } from "react";
 function App() {
   return (
     <div>
-      <div id="split-pane-or">
-        <h1 className="headline">TripCast</h1>
+      <div id="app">
+        <h1 className="title">TripCast</h1>
         <div className="spacer"></div>
         <h2 className="subhead">Directions and Weather</h2>
         <Inputs />

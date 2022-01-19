@@ -102,7 +102,7 @@ class Inputs extends React.Component {
         this.state.weather[0] !== "processing"
       ) {
         return (
-          <div className="row">
+          <div className="">
             <div className="column">
               <img src={this.state.map} />
               <WeatherRouteText
@@ -110,7 +110,11 @@ class Inputs extends React.Component {
                 route={this.state.route}
               />
 
-              <Button function={this.returnToInput} text={"New Search"} />
+              <Button
+                className="form_button"
+                function={this.returnToInput}
+                text={"New Search"}
+              />
             </div>
           </div>
         );

@@ -121,8 +121,12 @@ ol.gradient-list {
 }
 
 .column {
-  float: left;
-  width: 50%;
+  padding: 30px;
+  font-size: 40px;
+  text-align: center;
+  width: 100%;
+    background-image: url("https://res.cloudinary.com/hwomdjzqy/image/upload/v1642561602/pexels-quintin-gellar-844167_2_fym2fh.jpg");
+    background-size: cover;
 }
 
 .app {

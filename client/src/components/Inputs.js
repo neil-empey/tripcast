@@ -66,7 +66,7 @@ class Inputs extends React.Component {
       return (
         <div className="row">
           <div className="column">
-            <form className="form" onSubmit={this.handleSubmit}>
+            <form className="" onSubmit={this.handleSubmit}>
               {" "}
               <label>
                 Origin:

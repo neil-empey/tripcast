@@ -127,28 +127,13 @@ label {
 }
 
 .title {
-  color: #a12df4;
+  color: #203763;
 }
 
 .low {
   color: #1B3955;
   font-size: 1 vw;
 }
-
-
-ol.gradient-list {
-  counter-reset: gradient-counter;
-  list-style: none;
-  margin: 1.75rem 0;
-  padding-left: 1rem;
-    background: #83e4e2;
-    border-radius: 0 0.5rem 0.5rem 0.5rem;
-    counter-increment: gradient-counter;
-    margin-top: 1rem;
-    min-height: 3rem;
-    padding: 1rem 1rem 1rem 3rem;
-    position: relative;
-  }
 
 .trip {
   font-family: 'Sonsie One', cursive;

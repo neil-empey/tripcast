@@ -64,13 +64,14 @@ class Inputs extends React.Component {
   render() {
     if (this.state.isActive === true) {
       return (
-        <div className="split-pane col-xs-12 col-sm-6 frontend-side">
-          <div className="text-content">
-            <form onSubmit={this.handleSubmit}>
+        <div className="row">
+          <div className="column">
+            <form className="form" onSubmit={this.handleSubmit}>
               {" "}
               <label>
                 Origin:
                 <input
+                  className="form_email"
                   type="text"
                   placeholder="15 Elmwood, Clinton, CT"
                   value={this.state.origin}
@@ -80,13 +81,14 @@ class Inputs extends React.Component {
               <label>
                 Destination:
                 <input
+                  className="form_email"
                   type="text"
                   placeholder="100 Main St, New York, NY"
                   value={this.state.dest}
                   onChange={this.handleChangeDest}
                 />{" "}
               </label>
-              <input type="submit" value="Submit" />
+              <input className="form_button" type="submit" value="Submit" />
             </form>
             <h4>Enter origin and destination points as shown.</h4>
           </div>
@@ -100,14 +102,14 @@ class Inputs extends React.Component {
         this.state.weather[0] !== "processing"
       ) {
         return (
-          <div className="container flex_div">
-            <div className="one_third">
+          <div className="row">
+            <div className="column">
               <img src={this.state.map} />
               <WeatherRouteText
                 weather={this.state.weather}
                 route={this.state.route}
               />
-              <div className="spacer"></div>
+
               <Button function={this.returnToInput} text={"New Search"} />
             </div>
           </div>

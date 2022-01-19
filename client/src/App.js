@@ -13,7 +13,7 @@ function App() {
 
         <div className="gif">
           <iframe
-            id=""
+            className="frame"
             src="https://giphy.com/embed/LBgf56psa07tCUJmpC"
           ></iframe>
         </div>

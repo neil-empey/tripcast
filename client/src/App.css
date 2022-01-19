@@ -7,9 +7,10 @@ html,
 
 body {
   text-align: center;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
-  background-image: url("https://res.cloudinary.com/hwomdjzqy/image/upload/v1642561602/pexels-quintin-gellar-844167_2_fym2fh.jpg");
+  background-color: #203763;
+  /* background-image: url("https://res.cloudinary.com/hwomdjzqy/image/upload/v1642561602/pexels-quintin-gellar-844167_2_fym2fh.jpg"); */
   font-family: 'Raleway', sans-serif;
 }
 

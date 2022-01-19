@@ -48,7 +48,9 @@ class WeatherRouteText extends Component {
                 <p className="stage">
                   <u>Stage {i + 1}</u>
                   <li className="stage" key={i}>
-                    <p className="descrip">{x}</p>
+                    <p className="descrip">
+                      <strong>{x}</strong>
+                    </p>
 
                     {i % 2 >= 1 ? (
                       <>
@@ -74,7 +76,7 @@ class WeatherRouteText extends Component {
                     ) : (
                       <p></p>
                     )}
-
+                    <br></br>
                     <u>
                       <small>Roads Hazards and Alerts</small>
                     </u>

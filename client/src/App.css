@@ -132,7 +132,12 @@ label {
 
 .low {
   color: #1B3955;
-  font-size: 1 vw;
+  font-size: 16px;
+}
+
+.descrip {
+  font-family: 'Roboto Mono';
+font-size: 21px;
 }
 
 .trip {

@@ -136,6 +136,12 @@ label {
 }
 
 .trip {
+  font-size: 29px;
+  font-family: 'Sonsie One', cursive;
+}
+
+.trip-cast {
+  font-size: 43px;
   font-family: 'Sonsie One', cursive;
 }
 
@@ -147,7 +153,7 @@ label {
   /* background-image: url("https://res.cloudinary.com/hwomdjzqy/image/upload/v1642561602/pexels-quintin-gellar-844167_2_fym2fh.jpg"); */
   /* background-size: 100% auto; */
   padding: 30px;
-  font-size: 40px;
+  font-size: 21px;
   text-align: center;
   width: 100%;
 
@@ -156,7 +162,7 @@ label {
 .app {
 
   padding: 30px;
-  font-size: 40px;
+  font-size: 19px;
   text-align: center;
   /* background-image: url("https://res.cloudinary.com/hwomdjzqy/image/upload/v1642561602/pexels-quintin-gellar-844167_2_fym2fh.jpg"); */
 

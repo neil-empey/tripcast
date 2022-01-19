@@ -103,7 +103,7 @@ class Inputs extends React.Component {
       ) {
         return (
           <div className="">
-            <div className="column">
+            <div className="">
               <img src={this.state.map} />
               <WeatherRouteText
                 weather={this.state.weather}

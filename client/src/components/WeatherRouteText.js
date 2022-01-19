@@ -41,59 +41,53 @@ class WeatherRouteText extends Component {
         <div className="">
           <h5 className="title">
             <u>Directions and Weather at every stage</u>
-          </5>
+          </h5>
           <ul className="no-bullets">
             {this.state.route.map((x, i) => (
               <>
+                <p className="stage">Stage {i + 1}</p>
+                <li className="stage" key={i}>
+                  {x}
+                </li>
 
-                  <p className="stage">Stage {i + 1}</p>
-                  <li className="stage" key={i}>
-                    {x}
-                  </li>
-
-
-
-                  <li className="no-bullets" key={i}>
-                    <figure>
-                      <img
-                        src={
-                          "http://openweathermap.org/img/wn/" +
-                          this.state.weather[i]["daily"][0]["weather"][0][
-                            "icon"
-                          ] +
-                          "@2x.png"
-                        }
-                        alt="weather icon"
-                      />
-                    </figure>
-                    <p>
-                      {
+                <li className="no-bullets" key={i}>
+                  <figure>
+                    <img
+                      src={
+                        "http://openweathermap.org/img/wn/" +
                         this.state.weather[i]["daily"][0]["weather"][0][
-                          "description"
-                        ]
+                          "icon"
+                        ] +
+                        "@2x.png"
                       }
-                    </p>
-                    <p>
-                      <u>Roads Hazards and Alerts</u>
-                    </p>
-                    {this.state.weather[i]["alerts"] !== undefined ? (
-                      <p>{this.state.weather[i]["alerts"][0]["event"]}</p>
-                    ) : (
-                      <p>n/a</p>
-                    )}
-                  </li>
-
-
+                      alt="weather icon"
+                    />
+                  </figure>
                   <p>
-                    <pre>
-                      <p className="low">
-                        Low {this.getMinFeels(i)} High {this.getMaxFeels(i)}{" "}
-                        Wind speed{" "}
-                        {this.state.weather[i]["daily"][0]["wind_speed"]}
-                      </p>
-                    </pre>
+                    {
+                      this.state.weather[i]["daily"][0]["weather"][0][
+                        "description"
+                      ]
+                    }
                   </p>
+                  <p>
+                    <u>Roads Hazards and Alerts</u>
+                  </p>
+                  {this.state.weather[i]["alerts"] !== undefined ? (
+                    <p>{this.state.weather[i]["alerts"][0]["event"]}</p>
+                  ) : (
+                    <p>n/a</p>
+                  )}
+                </li>
 
+                <p>
+                  <pre>
+                    <p className="low">
+                      Low {this.getMinFeels(i)} High {this.getMaxFeels(i)} Wind
+                      speed {this.state.weather[i]["daily"][0]["wind_speed"]}
+                    </p>
+                  </pre>
+                </p>
               </>
             ))}
           </ul>

@@ -8,9 +8,11 @@ function App() {
     <div>
       <div className="app">
         <h1 className="headline">TripCast</h1>
+        <div className="spacer"></div>
         <h2 className="subhead">Directions and Weather</h2>
         <Inputs />
       </div>
+      <div className="spacer"></div>
       <div className="gif">
         <iframe
           id="author-avatar"

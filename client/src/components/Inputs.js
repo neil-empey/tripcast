@@ -100,13 +100,16 @@ class Inputs extends React.Component {
         this.state.weather[0] !== "processing"
       ) {
         return (
-          <div>
-            <img src={this.state.map} />
-            <WeatherRouteText
-              weather={this.state.weather}
-              route={this.state.route}
-            />
-            <Button function={this.returnToInput} text={"New Search"} />
+          <div className="container flex_div">
+            <div className="one_third">
+              <img src={this.state.map} />
+              <WeatherRouteText
+                weather={this.state.weather}
+                route={this.state.route}
+              />
+              <div className="spacer"></div>
+              <Button function={this.returnToInput} text={"New Search"} />
+            </div>
           </div>
         );
       } else {

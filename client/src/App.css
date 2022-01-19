@@ -11,6 +11,7 @@ body {
   padding: 0;
   /* background-color: #203763; */
   background-image: url("https://res.cloudinary.com/hwomdjzqy/image/upload/v1642561602/pexels-quintin-gellar-844167_2_fym2fh.jpg");
+  background-size: cover;
   font-family: 'Raleway', sans-serif;
 }
 

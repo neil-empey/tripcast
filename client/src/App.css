@@ -9,8 +9,8 @@ body {
   text-align: center;
   margin: 0 auto;
   padding: 0;
-  background-color: #203763;
-  /* background-image: url("https://res.cloudinary.com/hwomdjzqy/image/upload/v1642561602/pexels-quintin-gellar-844167_2_fym2fh.jpg"); */
+  /* background-color: #203763; */
+  background-image: url("https://res.cloudinary.com/hwomdjzqy/image/upload/v1642561602/pexels-quintin-gellar-844167_2_fym2fh.jpg");
   font-family: 'Raleway', sans-serif;
 }
 
@@ -124,7 +124,7 @@ ol.gradient-list {
   padding: 30px;
   font-size: 40px;
   text-align: center;
-  background-image: url("https://res.cloudinary.com/hwomdjzqy/image/upload/v1642561602/pexels-quintin-gellar-844167_2_fym2fh.jpg");
+  /* background-image: url("https://res.cloudinary.com/hwomdjzqy/image/upload/v1642561602/pexels-quintin-gellar-844167_2_fym2fh.jpg"); */
 }
 
 /* Clear floats after the columns */

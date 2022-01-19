@@ -44,7 +44,7 @@ class WeatherRouteText extends Component {
           </h5>
           <ul className="no-bullets">
             {this.state.route.map((x, i) => (
-              <div className="">
+              <div style={{ background: "#203763" }}>
                 <p className="stage">
                   <u>Stage {i + 1}</u>
                   <li className="stage" key={i}>

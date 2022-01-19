@@ -10,8 +10,8 @@ body {
   margin: 0;
   padding: 0;
   /* background-color: #203763; */
-  background-image: url("https://res.cloudinary.com/hwomdjzqy/image/upload/v1642561602/pexels-quintin-gellar-844167_2_fym2fh.jpg");
-  background-size: 100% 100%;
+  /* background-image: url("https://res.cloudinary.com/hwomdjzqy/image/upload/v1642561602/pexels-quintin-gellar-844167_2_fym2fh.jpg");
+  background-size: cover; */
   font-family: 'Raleway', sans-serif;
 }
 
@@ -170,6 +170,8 @@ font-size: 25px;
   padding: 30px;
   text-align: center;
   /* background-image: url("https://res.cloudinary.com/hwomdjzqy/image/upload/v1642561602/pexels-quintin-gellar-844167_2_fym2fh.jpg"); */
+  background-image: url("https://res.cloudinary.com/hwomdjzqy/image/upload/v1642561602/pexels-quintin-gellar-844167_2_fym2fh.jpg");
+  background-size: cover;
 
 }
 

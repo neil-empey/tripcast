@@ -47,11 +47,11 @@ ul.no-bullets {
 
 input[type=submit] {
   font-family: 'Roboto Mono', monospace;
- background-color: #48D1CC;
+ background-color: #29879C;
  color: white;
  padding: 12px 20px;
  border: none;
- border-radius: 4px;
+ border-radius: 9px;
  cursor: pointer;
  float: right;
 }

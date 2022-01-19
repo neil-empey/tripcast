@@ -154,22 +154,22 @@ font-size: 25px;
   color: #203763;
 }
 
-body.column {
+/* body.column {
   background-image: url("https://res.cloudinary.com/hwomdjzqy/image/upload/v1642561602/pexels-quintin-gellar-844167_2_fym2fh.jpg");
   background-size: cover;
   /* background-color: #203763; */
   padding: 30px;
-  font-size: 21px;
-  text-align: center;
+  /* font-size: 21px;
+  text-align: center; */
   width: 100%;
 
-}
+} */
 
 .app {
   text-align: center;
   /* background-image: url("https://res.cloudinary.com/hwomdjzqy/image/upload/v1642561602/pexels-quintin-gellar-844167_2_fym2fh.jpg"); */
-  /* background-image: url("https://res.cloudinary.com/hwomdjzqy/image/upload/v1642561602/pexels-quintin-gellar-844167_2_fym2fh.jpg");
-  background-size: cover; */
+  background-image: url("https://res.cloudinary.com/hwomdjzqy/image/upload/v1642561602/pexels-quintin-gellar-844167_2_fym2fh.jpg");
+  background-size: cover;
 
 }
 

@@ -71,7 +71,7 @@ class Inputs extends React.Component {
               <label>
                 Origin:
                 <input
-                  className="form_email"
+                  className=""
                   type="text"
                   placeholder="15 Elmwood, Clinton, CT"
                   value={this.state.origin}
@@ -81,7 +81,7 @@ class Inputs extends React.Component {
               <label>
                 Destination:
                 <input
-                  className="form_email"
+                  className=""
                   type="text"
                   placeholder="100 Main St, New York, NY"
                   value={this.state.dest}

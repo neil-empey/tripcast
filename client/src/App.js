@@ -11,9 +11,9 @@ function App() {
         <h2 className="">Directions and Weather</h2>
         <Inputs />
 
-        <div className="gif">
+        <div className="">
           <iframe
-            className="frame"
+            className="gif"
             src="https://giphy.com/embed/LBgf56psa07tCUJmpC"
           ></iframe>
         </div>

@@ -119,7 +119,11 @@ class Inputs extends React.Component {
           </div>
         );
       } else {
-        return <p><small>Processing...</small><p>;
+        return (
+          <p>
+            <small>Processing...</small>
+          </p>
+        );
       }
     }
   }

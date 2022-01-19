@@ -12,10 +12,10 @@ function App() {
         <Inputs />
 
         <div className="">
-          <iframe
+          <img
             className="gif"
             src="https://giphy.com/embed/LBgf56psa07tCUJmpC"
-          ></iframe>
+          />
         </div>
       </div>
     </div>

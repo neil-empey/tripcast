@@ -65,7 +65,7 @@ class Inputs extends React.Component {
     if (this.state.isActive === true) {
       return (
         <div className="row">
-          <div className="column">
+          <div className="">
             <form className="" onSubmit={this.handleSubmit}>
               {" "}
               <label>

@@ -37,22 +37,22 @@ class WeatherRouteText extends Component {
   render() {
     // console.log(this.state.route);
     return (
-      <div className="row">
+      <div className="column">
         <div className="">
-          <h4 className="title">
+          <h5 className="title">
             <u>Directions and Weather at every stage</u>
-          </h4>
+          </5>
           <ul className="no-bullets">
             {this.state.route.map((x, i) => (
               <>
-                <section>
-                  <h4 className="stage">Stage {i + 1}</h4>
+
+                  <p className="stage">Stage {i + 1}</p>
                   <li className="stage" key={i}>
                     {x}
                   </li>
-                </section>
 
-                <section>
+
+
                   <li className="no-bullets" key={i}>
                     <figure>
                       <img
@@ -73,17 +73,17 @@ class WeatherRouteText extends Component {
                         ]
                       }
                     </p>
-                    <h6>
+                    <p>
                       <u>Roads Hazards and Alerts</u>
-                    </h6>
+                    </p>
                     {this.state.weather[i]["alerts"] !== undefined ? (
                       <p>{this.state.weather[i]["alerts"][0]["event"]}</p>
                     ) : (
                       <p>n/a</p>
                     )}
                   </li>
-                </section>
-                <section>
+
+
                   <p>
                     <pre>
                       <p className="low">
@@ -93,7 +93,7 @@ class WeatherRouteText extends Component {
                       </p>
                     </pre>
                   </p>
-                </section>
+
               </>
             ))}
           </ul>

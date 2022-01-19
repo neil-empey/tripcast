@@ -6,7 +6,7 @@ import React, { useState } from "react";
 function App() {
   return (
     <div className="container">
-      <div className="sliding-background">
+      <div className="">
         <div className="app">
           <h1 className="trip">TripCast</h1>
           <h5 className="trip">Directions and Weather</h5>

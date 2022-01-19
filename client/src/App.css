@@ -73,7 +73,7 @@ figure {
 	margin: 0;
 }
 img {
-	width: 100%;
+	width: 20%;
 }
 figcaption {
 	display: none;
@@ -102,4 +102,9 @@ figcaption {
 		width: 100%;
 		margin-top: 20px;
 	}
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #206777;
+  opacity: 1; /* Firefox */
 }

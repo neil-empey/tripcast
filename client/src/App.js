@@ -5,12 +5,14 @@ import React, { useState } from "react";
 
 function App() {
   return (
-    <div>
-      <div className="app">
-        <h1 className="trip">TripCast</h1>
-        <h5 className="trip">Directions and Weather</h5>
-        <p>Always Prepared</p>
-        <Inputs />
+    <div className="container">
+      <div className="sliding-background">
+        <div className="app">
+          <h1 className="trip">TripCast</h1>
+          <h5 className="trip">Directions and Weather</h5>
+          <p>Always Prepared</p>
+          <Inputs />
+        </div>
       </div>
     </div>
   );

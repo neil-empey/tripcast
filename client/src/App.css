@@ -132,12 +132,12 @@ label {
 
 .low {
   color: #1B3955;
-  font-size: 16px;
+  font-size: 13px;
 }
 
 .descrip {
   font-family: 'Roboto Mono';
-font-size: 21px;
+font-size: 23px;
 }
 
 .trip {
@@ -167,7 +167,6 @@ font-size: 21px;
 .app {
 
   padding: 30px;
-  font-size: 19px;
   text-align: center;
   /* background-image: url("https://res.cloudinary.com/hwomdjzqy/image/upload/v1642561602/pexels-quintin-gellar-844167_2_fym2fh.jpg"); */
 

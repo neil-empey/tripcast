@@ -80,7 +80,9 @@ class WeatherRouteText extends Component {
                     </u>
 
                     {this.state.weather[i]["alerts"] !== undefined ? (
-                      <p>{this.state.weather[i]["alerts"][0]["event"]}</p>
+                      <p className="low">
+                        {this.state.weather[i]["alerts"][0]["event"]}
+                      </p>
                     ) : (
                       <p>n/a</p>
                     )}

@@ -14,7 +14,7 @@ font-family: 'Raleway', sans-serif;
 }
 
 .frontend-side {
-background-image: url("%PUBLIC_URL%/light.jpg");
+background-image: href="%PUBLIC_URL%/light.jpg";
 }
 
 .trip {
@@ -34,7 +34,7 @@ li.no-bullets {
 }
 
 .uiux-side {
-background-image: url("%PUBLIC_URL%/road.jpg");
+background-image: href="%PUBLIC_URL%/road.jpg";
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */

@@ -37,11 +37,11 @@ class WeatherRouteText extends Component {
   render() {
     // console.log(this.state.route);
     return (
-      <div className="row">
-        <div className="column">
-          <h3 className="title">
+      <div className="container">
+        <div className="half">
+          <h4 className="header">
             <u>Directions and Weather at every stage</u>
-          </h3>
+          </h4>
           <ul className="no-bullets">
             {this.state.route.map((x, i) => (
               <>

@@ -37,9 +37,9 @@ class WeatherRouteText extends Component {
   render() {
     // console.log(this.state.route);
     return (
-      <div className="">
-        <div className="text-content">
-          <h4 className="big">
+      <div className="row">
+        <div className="column">
+          <h4 className="title">
             <u>Directions and Weather at every stage</u>
           </h4>
           <ul className="no-bullets">
@@ -98,7 +98,7 @@ class WeatherRouteText extends Component {
             ))}
           </ul>
         </div>
-        <div className="column">
+        <div>
           <br></br>
           <h4>
             Expect an actual minimum temperature of {this.getMinMax()[0]} and

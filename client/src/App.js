@@ -14,7 +14,7 @@ function App() {
         <div className="">
           <img
             className="gif"
-            src="https://giphy.com/embed/LBgf56psa07tCUJmpC"
+            src="https://res.cloudinary.com/hwomdjzqy/image/upload/v1642560873/pexels-quintin-gellar-844167_gcaav1.jpg"
           />
         </div>
       </div>

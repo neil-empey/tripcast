@@ -155,9 +155,9 @@ font-size: 25px;
 }
 
 body.column {
-  /* background-image: url("https://res.cloudinary.com/hwomdjzqy/image/upload/v1642561602/pexels-quintin-gellar-844167_2_fym2fh.jpg"); */
-  /* background-size: 100% auto; */
-  background-color: #203763;
+  background-image: url("https://res.cloudinary.com/hwomdjzqy/image/upload/v1642561602/pexels-quintin-gellar-844167_2_fym2fh.jpg");
+  background-size: cover;
+  /* background-color: #203763; */
   padding: 30px;
   font-size: 21px;
   text-align: center;

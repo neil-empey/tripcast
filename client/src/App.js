@@ -5,7 +5,7 @@ import React, { useState } from "react";
 
 function App() {
   return (
-    <div className="container">
+    <div className="">
       <div className="">
         <div className="app">
           <h1 className="trip">TripCast</h1>

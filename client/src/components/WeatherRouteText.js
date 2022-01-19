@@ -38,7 +38,7 @@ class WeatherRouteText extends Component {
     // console.log(this.state.route);
     return (
       <div className="row">
-        <div className="column">
+        <div className="">
           <h4 className="title">
             <u>Directions and Weather at every stage</u>
           </h4>

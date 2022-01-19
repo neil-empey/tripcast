@@ -37,9 +37,9 @@ class WeatherRouteText extends Component {
   render() {
     // console.log(this.state.route);
     return (
-      <div className="container">
-        <div className="half">
-          <h4 className="header">
+      <div className="split-pane col-xs-12 col-sm-6 uiux-side">
+        <div className="text-content">
+          <h4 className="big">
             <u>Directions and Weather at every stage</u>
           </h4>
           <ul className="no-bullets">

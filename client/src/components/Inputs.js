@@ -64,8 +64,8 @@ class Inputs extends React.Component {
   render() {
     if (this.state.isActive === true) {
       return (
-        <div className="section">
-          <div className="container flex_div">
+        <div className="split-pane col-xs-12 col-sm-6 frontend-side">
+          <div className="text-content">
             <form onSubmit={this.handleSubmit}>
               {" "}
               <label>

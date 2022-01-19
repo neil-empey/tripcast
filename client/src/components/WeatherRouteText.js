@@ -49,24 +49,31 @@ class WeatherRouteText extends Component {
                   Stage {i + 1}
                   <li className="stage" key={i}>
                     {x}
-                    <figure>
-                      <img
-                        src={
-                          "http://openweathermap.org/img/wn/" +
-                          this.state.weather[i]["daily"][0]["weather"][0][
-                            "icon"
-                          ] +
-                          "@2x.png"
-                        }
-                        alt="weather icon"
-                      />
-                    </figure>
 
-                    {
-                      this.state.weather[i]["daily"][0]["weather"][0][
-                        "description"
-                      ]
-                    }
+                    {i % 2 >= 1 ? (
+                      <>
+                        <figure>
+                          <img
+                            src={
+                              "http://openweathermap.org/img/wn/" +
+                              this.state.weather[i]["daily"][0]["weather"][0][
+                                "icon"
+                              ] +
+                              "@2x.png"
+                            }
+                            alt="weather icon"
+                          />
+                        </figure>
+
+                        {
+                          this.state.weather[i]["daily"][0]["weather"][0][
+                            "description"
+                          ]
+                        }
+                      </>
+                    ) : (
+                      <p></p>
+                    )}
 
                     <u>Roads Hazards and Alerts</u>
 
@@ -76,14 +83,13 @@ class WeatherRouteText extends Component {
                       <p>n/a</p>
                     )}
                   </li>
+                  <pre>
+                    <p className="low">
+                      Low {this.getMinFeels(i)} High {this.getMaxFeels(i)} Wind
+                      speed {this.state.weather[i]["daily"][0]["wind_speed"]}
+                    </p>
+                  </pre>
                 </p>
-
-                <pre>
-                  <p className="low">
-                    Low {this.getMinFeels(i)} High {this.getMaxFeels(i)} Wind
-                    speed {this.state.weather[i]["daily"][0]["wind_speed"]}
-                  </p>
-                </pre>
               </div>
             ))}
           </ul>

@@ -76,11 +76,11 @@ input[type=submit] {
   font-family: 'Roboto Mono', monospace;
  background-color: #29879C;
  color: white;
- padding: 12px 20px;
+ padding: 12px;
  border: none;
- border-radius: 9px;
+ border-radius: 13px;
  cursor: pointer;
- float: right;
+
 }
 
 .form__button {

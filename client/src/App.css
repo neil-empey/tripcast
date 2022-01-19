@@ -73,6 +73,10 @@ li.no-bullets {
 
 }
 
+label {
+  font-family: 'Sonsie One'
+}
+
 .frame {
   display: block;
   margin: auto;

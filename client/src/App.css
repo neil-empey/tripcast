@@ -123,15 +123,15 @@ label {
   position: relative;
 }
 .stage {
-  color: #1B3955;
+  color: white;
 }
 
 .title {
-  color: #203763;
+  color: white;
 }
 
 .low {
-  color: #1B3955;
+  color: white;
   font-size: 13px;
 }
 
@@ -151,7 +151,7 @@ font-size: 25px;
 }
 
 .step {
-  color: #203763;
+  color: white;
 }
 
 /* body.column {

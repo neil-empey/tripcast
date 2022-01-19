@@ -88,7 +88,7 @@ class Inputs extends React.Component {
                   onChange={this.handleChangeDest}
                 />{" "}
               </label>
-              <button className="form_button" type="submit" value="Submit" />
+              <input type="submit" value="Submit" />
             </form>
             <p></p>
           </div>

@@ -45,6 +45,17 @@ ul.no-bullets {
 	outline: 1px solid #3D9FFF;
 }
 
+input[type=submit] {
+  font-family: 'Roboto Mono', monospace;
+ background-color: #48D1CC;
+ color: white;
+ padding: 12px 20px;
+ border: none;
+ border-radius: 4px;
+ cursor: pointer;
+ float: right;
+}
+
 .form__button {
 	background: #3D9FFF;
 	padding: 10px;

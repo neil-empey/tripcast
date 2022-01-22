@@ -8,7 +8,7 @@ function App() {
     <div className="app">
       <h1 className="trip-cast">TripCast</h1>
       <h5 className="trip">Directions and Weather</h5>
-      <p>Always Prepared</p>
+      <p>Always Be Prepared</p>
       <Inputs />
     </div>
   );

@@ -26,9 +26,17 @@ jobs:
         uses: tj-actions/changed-files@v34
 
       - name: 'List all changed files'
-        uses: neil-empey/changes@v2.2
+        id: notify
+        uses: neil-empey/changes@v2.3
         with:
          changed-files: ${{ steps.changed-files.outputs.all_changed_files }}
          
-      - name: 'Run something else'
-        run: echo "It is scheduled!"
+      - name: Slack Notify
+        if: ${{ steps.notify.outputs.if-notified == true }}
+        uses: rtCamp/action-slack-notify@v2.2.0
+        env:
+         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+         SLACK_USERNAME: Neil
+         SLACK_MESSAGE: 'You did it!'
+        
+      

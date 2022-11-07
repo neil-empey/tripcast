@@ -27,16 +27,16 @@ jobs:
 
       - name: 'List all changed files'
         id: notify
-        uses: neil-empey/changes@v2.3
+        uses: neil-empey/changes@v2.4
         with:
+         emails: 'nempey2000@gmail.com'
          changed-files: ${{ steps.changed-files.outputs.all_changed_files }}
          
       - name: Slack Notify
         if: ${{ steps.notify.outputs.if-notified == true }}
-        uses: rtCamp/action-slack-notify@v2.2.0
+        id: slack
+        uses: slackapi/slack-github-action@v1.23.0
         env:
-         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-         SLACK_USERNAME: Neil
-         SLACK_MESSAGE: 'You did it!'
+         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         
       

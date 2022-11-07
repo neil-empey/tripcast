@@ -50,7 +50,7 @@ jobs:
       - name: email
         uses: cinotify/github-action@main
         with:
-         to: 'nempey@eventpower.com'
+         to: 'nempey2000@gmail.com'
          subject: ${{ steps.pr.outputs.pull_request_number }}
          body: 'A PR needs your attention. PR# ${{ steps.pr.outputs.pull_request_number }}'
 

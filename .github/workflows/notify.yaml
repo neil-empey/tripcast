@@ -20,6 +20,12 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+          
+      - name: Get Pull Request Number
+        id: pr
+        run: echo "::set-output name=pull_request_number::$(gh pr view --json number -q .number || echo "")"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 'Get changed files'
         id: changed-files
@@ -45,6 +51,7 @@ jobs:
         uses: cinotify/github-action@main
         with:
          to: 'nempey@eventpower.com'
-         subject: 'building main'
-         body: 'This is a notification from GitHub actions.'
+         subject: ${{ steps.pr.outputs.pull_request_number }}
+         body: 'A PR needs your attention. PR# ${{ steps.pr.outputs.pull_request_number }}'
+
       

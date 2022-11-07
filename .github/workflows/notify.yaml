@@ -42,10 +42,16 @@ jobs:
         if: ${{ steps.notify.outputs.if-notified == 'true' }}
         id: slack
         uses: slackapi/slack-github-action@v1.23.0
+        with:
+         payload: |
+           {
+           "pr": ${{ steps.pr.outputs.pull_request_number }}
+           }
         env:
          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       
       - name: email Marisa
+        if: ${{ steps.notify.outputs.if-notified == 'true' }}
         uses: cinotify/github-action@main
         with:
          to: 'marisa.mccarthy@eventpower.com'
@@ -53,6 +59,7 @@ jobs:
          body: 'A PR needs your attention. PR# ${{ steps.pr.outputs.pull_request_number }}'
       
       - name: email Nick
+        if: ${{ steps.notify.outputs.if-notified == 'true' }}
         uses: cinotify/github-action@main
         with:
          to: 'nrasp@eventpower.com'

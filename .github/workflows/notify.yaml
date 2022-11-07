@@ -27,7 +27,7 @@ jobs:
 
       - name: 'List all changed files'
         id: notify
-        uses: neil-empey/changes@v2.7
+        uses: neil-empey/changes@v2.8
         with:
          emails: 'nempey2000@gmail.com'
          changed-files: ${{ steps.changed-files.outputs.all_changed_files }}

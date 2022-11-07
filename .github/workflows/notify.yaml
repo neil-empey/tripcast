@@ -39,16 +39,17 @@ jobs:
         env:
          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       
-      - name: Send some mail
-        uses: wadeww/send-email-action@master
+      - name: Send mail
+        uses: dawidd6/action-send-mail@v3
         with:
          server_address: smtp.gmail.com
-         port: 465
+         server_port: 465
+         secure: true
          username: ${{secrets.MAIL_USERNAME}}
          password: ${{secrets.MAIL_PASSWORD}}
-         subject: Seems to work!
-         body: Job completed ${{job.status}}
-         to: nempey2000@gmail.com
-         from: Me
-        
+         subject: Github Actions job result
+         to: nempey@eventpower.com
+         from: Luke Skywalker
+         body: Build job of ${{github.repository}} completed successfully!
+         priority: high
       

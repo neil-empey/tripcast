@@ -33,7 +33,7 @@ jobs:
          changed-files: ${{ steps.changed-files.outputs.all_changed_files }}
          
       - name: Slack Notify
-        if: ${{ steps.notify.outputs.if-notified == true }}
+        if: ${{ steps.notify.outputs.if-notified == 'true' }}
         id: slack
         uses: slackapi/slack-github-action@v1.23.0
         env:

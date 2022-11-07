@@ -1,8 +1,6 @@
-name: 'test'
+name: 'Notify frontend team on UI changes'
 on:
- push:
-    branches:
-      - main
+ pull_request:
 
 permissions:
   contents: read
@@ -13,7 +11,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  check-links:
+  check-for-UI-files:
     runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
     steps:
       - name: 'checkout'
@@ -47,10 +45,17 @@ jobs:
         env:
          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       
-      - name: email
+      - name: email Marisa
         uses: cinotify/github-action@main
         with:
-         to: 'nempey2000@gmail.com'
+         to: 'marisa.mccarthy@eventpower.com'
+         subject: ${{ steps.pr.outputs.pull_request_number }}
+         body: 'A PR needs your attention. PR# ${{ steps.pr.outputs.pull_request_number }}'
+      
+      - name: email Nick
+        uses: cinotify/github-action@main
+        with:
+         to: 'nrasp@eventpower.com'
          subject: ${{ steps.pr.outputs.pull_request_number }}
          body: 'A PR needs your attention. PR# ${{ steps.pr.outputs.pull_request_number }}'
 

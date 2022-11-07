@@ -39,17 +39,10 @@ jobs:
         env:
          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       
-      - name: Send mail
-        uses: dawidd6/action-send-mail@v3
+      - name: email
+        uses: cinotify/github-action@main
         with:
-         server_address: smtp.gmail.com
-         server_port: 465
-         secure: true
-         username: ${{secrets.MAIL_USERNAME}}
-         password: ${{secrets.MAIL_PASSWORD}}
-         subject: Github Actions job result
-         to: nempey@eventpower.com
-         from: Luke Skywalker
-         body: Build job of ${{github.repository}} completed successfully!
-         priority: high
+         to: 'nempey@eventpower.com'
+         subject: 'building main'
+         body: 'This is a notification from GitHub actions.'
       

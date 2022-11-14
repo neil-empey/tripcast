@@ -31,7 +31,7 @@ jobs:
           content="${content//$'\n'/'%0A'}"
           content="${content//$'\r'/'%0D'}"
           # end of optional handling for multi line json
-          echo "::set-output name=packageJson::$content"
+          echo "::set-env name=packageJson::$content"
       - run: |
           echo "${{fromJson(steps.set_var.outputs.packageJson).version}}"
        
@@ -67,7 +67,7 @@ jobs:
         id: slack 
         uses: slackapi/slack-github-action@v1.23.0
         with: |
-         ${{ steps.create-env.outputs.full-path }}
+         ${{ env.packageJson }}
         env:
          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -13,16 +13,23 @@ concurrency:
 jobs:
   check-for-UI-files:
     runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
+    
+    env:
+     PR_NUMBER: ${{ github.event.number }}
+
     steps:
       - name: 'checkout'
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
        
-      - name: 'try out'
-        run: echo  ${{ context.payload.number }}
-        env:
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Test
+        uses: actions/github-script@0.3.0
+        with:
+         github-token: ${{github.token}}
+         script: |
+          const core = require('@actions/core')
+          const prNumber = context.payload.number;
 
       - name: 'Get changed files'
         id: changed-files

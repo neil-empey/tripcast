@@ -57,12 +57,11 @@ jobs:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
       - name: email Marisa
-        if: ${{ steps.notify.outputs.if-notified == 'true' }}
         uses: cinotify/github-action@main
         with:
-         to: 'marisa.mccarthy@eventpower.com'
-         subject: ${{ steps.pr.outputs.pull_request_number }}
-         body: 'A PR needs your attention. PR# ${{ steps.pr.outputs.pull_request_number }}'
+         to: 'nempey@eventpower.com'
+         subject: ${{ env.PR_NUMBER }}
+         body: 'A PR needs your attention. PR# ${{ env.PR_NUMBER }}'
       
       - name: email Nick
         if: ${{ steps.notify.outputs.if-notified == 'true' }}

@@ -52,7 +52,6 @@ jobs:
         env:
          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-         PR_NUMBER: ${{ github.event.number }}
       
       - name: email Marisa
         if: ${{ steps.notify.outputs.if-notified == 'true' }}

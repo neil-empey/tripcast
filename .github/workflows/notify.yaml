@@ -60,8 +60,8 @@ jobs:
         uses: cinotify/github-action@main
         with:
          to: 'nempey@eventpower.com'
-         subject: 'PR#${{ env.PR_NUMBER }} needs your attention'
-         body: 'A PR needs your attention. PR# ${{ env.PR_NUMBER }}'
+         subject: "PR# ${{ env.PR_NUMBER }} needs your attention"
+         body: "A PR needs your attention. PR# ${{ env.PR_NUMBER }}"
       
       - name: email Nick
         if: ${{ steps.notify.outputs.if-notified == 'true' }}

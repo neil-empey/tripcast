@@ -30,6 +30,13 @@ jobs:
          script: |
           const core = require('@actions/core')
           const prNumber = context.payload.number;
+        
+      - name: create-json
+        id: create-json
+        uses: jsdaniell/create-json@v1.2.1
+        with:
+         name: "pr.json"
+         json: '"payload":{"pr":${{env.PR_NUMBER}}}'
 
       - name: 'Get changed files'
         id: changed-files
@@ -47,8 +54,8 @@ jobs:
       - name: Slack Notify
         id: slack
         uses: slackapi/slack-github-action@v1.23.0
-        with: 
-         pr: ${{env.PR_NUMBER}}
+        with: |
+         ${{steps.create-json.outputs.pr.json}}
         env:
          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

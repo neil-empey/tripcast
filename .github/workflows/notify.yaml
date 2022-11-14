@@ -33,7 +33,7 @@ jobs:
           # end of optional handling for multi line json
           echo "name=pr" >> $GITHUB_OUTPUT
       - run: |
-          echo "${{fromJson(steps.set_var.outputs.pr}}"
+          echo "${{fromJson(steps.set_var.outputs.pr)}}"
        
       - name: Test
         uses: actions/github-script@0.3.0

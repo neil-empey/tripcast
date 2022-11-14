@@ -36,7 +36,7 @@ jobs:
         uses: jsdaniell/create-json@v1.2.1
         with:
          name: "pr.json"
-         json: '"payload":{"pr":${{env.PR_NUMBER}}}'
+         json: '"pr": ${{env.PR_NUMBER}}'
 
       - name: 'Get changed files'
         id: changed-files

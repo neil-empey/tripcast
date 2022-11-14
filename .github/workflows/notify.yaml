@@ -55,7 +55,7 @@ jobs:
         id: slack
         uses: slackapi/slack-github-action@v1.23.0
         with: |
-          pr.json
+         "pr.json"
         env:
          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -42,18 +42,17 @@ jobs:
         id: create-json
         uses: jsdaniell/create-json@v1.2.1
         with:
-          payload: '{ "pr": ${{ steps.pr.outputs.pull_request_number }} }'
+          json: '{ "pr": ${{ steps.pr.outputs.pull_request_number }} }'
 
       - name: Slack Notify
         if: ${{ steps.notify.outputs.if-notified == 'true' }}
         id: slack
         uses: slackapi/slack-github-action@v1.23.0
         with: |
-          ${{steps.create_json.outputs.payload}}
+          payload: ${{ steps.create-json.outputs.json }}
         env:
          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-         VALUE: ${{ steps.pr.outputs.pull_request_number }}
       
       - name: email Marisa
         if: ${{ steps.notify.outputs.if-notified == 'true' }}

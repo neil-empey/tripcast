@@ -31,9 +31,9 @@ jobs:
           content="${content//$'\n'/'%0A'}"
           content="${content//$'\r'/'%0D'}"
           # end of optional handling for multi line json
-          echo "::set-env name=packageJson::$content"
+          echo "pr=content" >> $GITHUB_ENV
       - run: |
-          echo "${{fromJson(steps.set_var.outputs.packageJson).version}}"
+          echo "${{env.pr}}"
        
       - name: Test
         uses: actions/github-script@0.3.0

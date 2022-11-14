@@ -37,22 +37,19 @@ jobs:
         with:
          emails: 'nempey2000@gmail.com'
          changed-files: ${{ steps.changed-files.outputs.all_changed_files }}
-         
-      - name: create-json
-        id: create-json
-        uses: jsdaniell/create-json@v1.2.1
-        with:
-          json: '{ "pr": ${{ steps.pr.outputs.pull_request_number }} }'
 
       - name: Slack Notify
         if: ${{ steps.notify.outputs.if-notified == 'true' }}
         id: slack
         uses: slackapi/slack-github-action@v1.23.0
         with: |
-          payload: ${{ steps.create-json.outputs.json }}
+         payload: {
+            "pr": PR_NUMBER
+          }
         env:
          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         PR_NUMBER: ${{ github.event.number }}
       
       - name: email Marisa
         if: ${{ steps.notify.outputs.if-notified == 'true' }}

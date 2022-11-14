@@ -36,7 +36,7 @@ jobs:
         uses: jsdaniell/create-json@v1.2.1
         with:
          name: "pr.json"
-         json: '"pr": ${{env.PR_NUMBER}}'
+         json: '"payload": { "pr": ${{env.PR_NUMBER}} }'
 
       - name: 'Get changed files'
         id: changed-files
@@ -55,7 +55,7 @@ jobs:
         id: slack
         uses: slackapi/slack-github-action@v1.23.0
         with: |
-         "pr.json"
+         ${{steps.create-json.outputs.pr.json}}
         env:
          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

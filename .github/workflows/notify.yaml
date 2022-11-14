@@ -23,33 +23,6 @@ jobs:
         with:
           fetch-depth: 0
           
-      - id: set_var
-        run: |
-          content=`cat ./pr.json`
-          # the following lines are only required for multi line json
-          content="${content//'%'/'%25'}"
-          content="${content//$'\n'/'%0A'}"
-          content="${content//$'\r'/'%0D'}"
-          # end of optional handling for multi line json
-          echo "name=pr" >> $GITHUB_OUTPUT
-      - run: |
-          echo "${{fromJson(steps.set_var.outputs.pr)}}"
-       
-      - name: Test
-        uses: actions/github-script@0.3.0
-        with:
-         github-token: ${{github.token}}
-         script: |
-          const core = require('@actions/core')
-          const prNumber = context.payload.number;
-        
-         uses: schdck/create-env-json@v1
-         id: create-env
-         with: |
-          file-name: 'env.json'
-          payload: ${{ secrets.secrets }}
-          
-
       - name: 'Get changed files'
         id: changed-files
         uses: tj-actions/changed-files@v34

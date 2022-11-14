@@ -1,6 +1,6 @@
 name: 'Notify frontend team on UI changes'
 on:
- pull_request:
+ push:
 
 permissions:
   contents: read
@@ -38,17 +38,22 @@ jobs:
          emails: 'nempey2000@gmail.com'
          changed-files: ${{ steps.changed-files.outputs.all_changed_files }}
          
+      - name: create-json
+        id: create-json
+        uses: jsdaniell/create-json@v1.2.1
+        with:
+          payload: '{ "pr": ${{ steps.pr.outputs.pull_request_number }} }'
+
       - name: Slack Notify
         if: ${{ steps.notify.outputs.if-notified == 'true' }}
         id: slack
         uses: slackapi/slack-github-action@v1.23.0
-        with:
-         payload: |
-           {
-           "pr": ${{ steps.pr.outputs.pull_request_number }}
-           }
+        with: |
+          ${{steps.create_json.outputs.payload}}
         env:
          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         VALUE: ${{ steps.pr.outputs.pull_request_number }}
       
       - name: email Marisa
         if: ${{ steps.notify.outputs.if-notified == 'true' }}

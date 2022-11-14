@@ -52,10 +52,10 @@ jobs:
          changed-files: ${{ steps.changed-files.outputs.all_changed_files }}
 
       - name: Slack Notify
-        id: slack
+        id: slack 
         uses: slackapi/slack-github-action@v1.23.0
         with: |
-         ${{steps.create-json.outputs.pr.json}}
+          pr.json
         env:
          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

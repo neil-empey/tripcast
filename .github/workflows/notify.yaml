@@ -47,9 +47,9 @@ jobs:
           # Optional whether this connection use TLS (default is true if server_port is 465)
           secure: true
           # Optional (recommended): mail server username:
-          username: nempey2000@gmail.com
+          username: argus.two.2@gmail.com
           # Optional (recommended) mail server password:
-          password: Alaska_907
+          password: dqsufqbizwwlawuq
           # Required mail subject:
           subject: Github Actions job result
           # Required recipients' addresses:

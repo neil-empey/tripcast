@@ -29,35 +29,46 @@ jobs:
         with:
          json: 'true'
 
-      - name: 'List all changed files'
-        id: notify
-        uses: neil-empey/changes@v2.9
+      - name: Send mail
+        uses: dawidd6/action-send-mail@v3
         with:
-         emails: 'nempey2000@gmail.com'
-         changed-files: ${{ steps.changed-files.outputs.all_changed_files }}
-
-      - name: Slack Notify
-        id: slack 
-        uses: slackapi/slack-github-action@v1.23.0
-        with: |
-          { pr: ${{env.PR_NUMBER}} }
-        env:
-         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
-      - name: email Marisa
-        uses: cinotify/github-action@main
-        with:
-         to: 'nempey@eventpower.com'
-         subject: "PR# ${{ env.PR_NUMBER }} needs your attention"
-         body: "A PR needs your attention. PR# ${{ env.PR_NUMBER }}"
-      
-      - name: email Nick
-        if: ${{ steps.notify.outputs.if-notified == 'true' }}
-        uses: cinotify/github-action@main
-        with:
-         to: 'nrasp@eventpower.com'
-         subject: ${{ steps.pr.outputs.pull_request_number }}
-         body: 'A PR needs your attention. PR# ${{ steps.pr.outputs.pull_request_number }}'
+          # Specify connection via URL (replaces server_address, server_port, secure,
+          # username and password)
+          #
+          # Format:
+          #
+          #  * smtp://user:password@server:port
+          #  * smtp+starttls://user:password@server:port
+          connection_url: ${{secrets.MAIL_CONNECTION}}
+          # Required mail server address if not connection_url:
+          server_address: smtp.gmail.com
+          # Server port, default 25:
+          server_port: 465
+          # Optional whether this connection use TLS (default is true if server_port is 465)
+          secure: true
+          # Optional (recommended): mail server username:
+          username: ${{nempey2000@gmail.com}}
+          # Optional (recommended) mail server password:
+          password: ${{Alaska_907}}
+          # Required mail subject:
+          subject: Github Actions job result
+          # Required recipients' addresses:
+          to: argus.two.2@gmail.com
+          # Required sender full name (address can be skipped):
+          from: Luke Skywalker # <user@example.com>
+          # Optional plain body:
+          body: Build job of ${{github.repository}} completed successfully!
+          # Optional HTML body read from file:
+          html_body: file://README.html
+          # Optional carbon copy recipients:
+          cc: nempey2000@gmail.com
+          # Optional blind carbon copy recipients:
+          #bcc: r2d2@example.com,hansolo@example.com
+          # Optional recipient of the email response:
+          #reply_to: luke@example.com
+          # Optional Message ID this message is replying to:
+          #in_reply_to: <random-luke@example.com>
+          # Optional unsigned/invalid certificates allowance:
+          priority: high
 
       
